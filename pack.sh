@@ -1,5 +1,5 @@
 #!/bin/bash 
 
-docker build -t radii:latest .
-docker tag radii devinpeace/radii:latest
-docker push devinpeace/radii:latest
+docker build -t devinpeace/$IMAGE_NAME:$TAG .
+docker login -u $DOCKER_LOGIN -p $DOCKER_PWD
+docker push devinpeace/$IMAGE_NAME:$TAG
