@@ -2,4 +2,4 @@ import pytest
 
 
 def test_simple():
-    assert 2 + 3 == 2
+    assert 2 + 3 == 5
