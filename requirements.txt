@@ -1,0 +1,8 @@
+Flask
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+pymysql
+mysql-connector
+pytest
+gunicorn

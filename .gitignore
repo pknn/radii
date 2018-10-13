@@ -1,0 +1,9 @@
+# Editor settings
+.vscode/
+
+# Python Generated output
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
