@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#index {
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0), hsla(0, 0, 0, 0.7), hsla(0, 0, 0, 1)), url('/static/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    color: white;
+    font-size: 1.5rem;
+}
