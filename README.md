@@ -23,5 +23,5 @@ export DATABASE_URL=mysql+pysql://username:password@host/database
 python app.py
 
 # Production run
-gunicorn app:app
+gunicorn app:app --workers=2 --worker-class="egg:meinheld#gunicorn_worker"
 ```
