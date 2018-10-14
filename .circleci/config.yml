@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            ./pack.sh
+            ./scripts/pack.sh
 
   deploy:
     docker:
@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Deploy to GCP
           command: |
-            ./deploy.sh
+            ./scripts/deploy.sh
 
 workflows:
   version: 2
