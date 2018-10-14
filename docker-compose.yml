@@ -7,10 +7,10 @@ services:
     links: 
       - db
     ports:
-      - "80:8080"
+      - "80:80"
     environment:
       - HOST=0.0.0.0
-    command: bash -c "flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:8080 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
+    command: bash -c "flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:80 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
       
   db:
     image: mysql:5.7
