@@ -26,7 +26,6 @@ jobs:
       - run:
           name: Setup venv and installing dependencies
           command: |
-            echo 'export TAG=latest' >> $BASH_ENV
             echo 'export IMAGE_NAME=radii-app' >> $BASH_ENV
             . venv/bin/activate
             sudo pip install -r requirements.txt
