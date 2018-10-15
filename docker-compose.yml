@@ -1,24 +1,19 @@
-version: '3'
+version: '3.2'
 services:
   app:
     image: devinpeace/radii-app:latest
     depends_on:
       - db
-    links: 
+    links:
       - db
     ports:
-      - "443:443"
+      - "3000:8000"
     environment:
       - HOST=0.0.0.0
-      - CERT_FILE=/etc/letsencrypt/live/radii.devinpeace.com/fullchain.pem
-      - KEY_FILE=/etc/letsencrypt/live/radii.devinpeace.com/privkey.pem
-    command: bash -c "cat app/static/styles/main.css && flask db migrate && flask db upgrade && gunicorn app:app --certfile=$CERT_FILE --keyfile=$KEY_FILE --bind 0.0.0.0:443 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
-      
+    command: bash -c "flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:8000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
   db:
     image: mysql:5.7
     ports:
       - "32000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro  
