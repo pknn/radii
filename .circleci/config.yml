@@ -16,6 +16,8 @@ jobs:
           name: Run Tests
           command: |
             . venv/bin/activate
+            flask db migrate
+            flask db upgrade
             pytest -p no:warnings
 
   build:
