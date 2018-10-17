@@ -9,6 +9,7 @@ jobs:
       - run:
           name: Setup venv and installing dependencies
           command: |
+            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - run:
@@ -27,6 +28,7 @@ jobs:
           name: Setup venv and installing dependencies
           command: |
             echo 'export IMAGE_NAME=radii-app' >> $BASH_ENV
+            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - setup_remote_docker:
