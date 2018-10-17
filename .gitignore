@@ -10,4 +10,5 @@ venv/
 # Generate output
 .DS_Store
 
+# Migration files
 migrations/
