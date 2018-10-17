@@ -1,10 +1,18 @@
 import pytest
 import datetime
+
 from app import models
 from app.models import Event
 from app import db
 
 def test_simple():
+    user = User(username="Pakanon")
+    db.session.add(user)
+    db.session.commit()
+
+    user = User.query.all()[0]
+    db.session.delete(user)
+    db.session.commit()
     assert 2 + 3 == 5
 
 def test_event_passed():
