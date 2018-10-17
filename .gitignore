@@ -9,3 +9,5 @@ venv/
 
 # Generate output
 .DS_Store
+
+migrations/
