@@ -9,12 +9,9 @@
 ## Build setup
 
 ```sh
-# Generate virtual environment
-python3 -m venv venv
-. venv/bin/activate
+# Acticate virtual environment
+. venv/bin/activate # For linux / macOS
 
-# Install dependencies
-pip install -r requirements.txt
 
 # Config Database path
 export DATABASE_URL=mysql+pysql://username:password@host/database
