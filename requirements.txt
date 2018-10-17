@@ -8,3 +8,4 @@ pytest
 sqlalchemy-utils
 gunicorn
 meinheld
+flake8
