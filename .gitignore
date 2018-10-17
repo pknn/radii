@@ -2,6 +2,7 @@
 .vscode/
 
 # Python Generated output
+.pytest_cache
 *.pyc
 
 # Virtual environment
