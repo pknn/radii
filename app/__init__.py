@@ -9,8 +9,8 @@ from sqlalchemy_utils import create_database, database_exists
 app = Flask(__name__)
 app.config.from_object(Config)
 
-if not database_exists(os.environ.get('DATABASE_URL')):
-    create_database(os.environ.get('DATABASE_URL'))
+if not database_exists(Config.SQLALCHEMY_DATABASE_URI):
+    create_database(Config.SQLALCHEMY_DATABASE_URI)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

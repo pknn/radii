@@ -9,13 +9,20 @@ jobs:
       - run:
           name: Setup venv and installing dependencies
           command: |
+            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - run:
-          name: Run Tests
+          name: Migrate database
           command: |
             . venv/bin/activate
-            pytest
+            flask db init
+            flask db migrate
+            flask db upgrade
+      - run:
+          name: Run Tests
+          command: |
+            pytest -p no:warnings
 
   build:
     docker:
@@ -27,6 +34,7 @@ jobs:
           name: Setup venv and installing dependencies
           command: |
             echo 'export IMAGE_NAME=radii-app' >> $BASH_ENV
+            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - setup_remote_docker:
