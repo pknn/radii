@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block wrapper %}
+  <div id="event">
+    {% include "navbar.html" %}
+    <div class="container">
+      <div class="container">
+        {% include "_location.html" %}
+      </div>
+      <div class="grid">
+        {% for event in events %}
+          {% include "_event.html" %}
+        {% endfor %}
+      </div>
+
+    </div>
+   {% include "_footer.html" %}
+  </div>
+  
+{% endblock wrapper %}
