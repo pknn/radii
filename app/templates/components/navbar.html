@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-5" id="main-navigation">
+    <a href="{{url_for('index')}}" class="navbar-brand">
+        <img src="{{url_for('static', filename='images/Logo.png')}}" width="30" height="30" class="d-inline-block align-top"
+            alt="">
+        Radii
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav mr-auto">
+        </div>
+        <ul class="navbar-nav">
+            <li class="px-3 nav-item active">
+                <a class="nav-link" href="{{url_for('event')}}">Browse <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="px-3 nav-item">
+                <a class="nav-link" href="#">Explore</a>
+            </li>
+            <li class="px-3 nav-item" id="login-button">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
