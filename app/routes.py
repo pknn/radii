@@ -4,7 +4,7 @@ from app import app
 
 @app.route('/')
 def index():
-    return render_template('index.jinja', title='Coming soon')
+    return render_template('index.html', title='Coming soon')
 
 
 @app.route('/event')
