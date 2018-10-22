@@ -1,8 +1,11 @@
 # Radii
 
+[![Code style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Updates](https://pyup.io/repos/github/pknn1/radii/shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
+[![Python 3](https://pyup.io/repos/github/pknn1/radii/python-3-shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
 [![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)](https://circleci.com/gh/pknn1/radii)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-[![Site status](https://img.shields.io/website-up-down-green-red/http/radii.devinpeace.com.svg?label=radii%20is)](https://radii.devinpeace.com)
+[![Site status](https://img.shields.io/website-up-down-green-red/http/radii.devinpeace.com.svg?label=radii%20is)](https://radii.devinpeace.com)  
 Find a new circle, around you.
 
 ## Team member
