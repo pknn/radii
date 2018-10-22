@@ -1,7 +1,10 @@
-{% import 'components.jinja' as components %}
+{% import 'components.html' as components %}
+
 {% extends 'base.html' %}
+
 {% block wrapper %}
-{% include "components/cover.jinja" %}
+
+{% include "components/cover.html" %}
 <div class="container">
     <h1>Hello</h1>
     <h1>Hello</h1>
@@ -16,4 +19,5 @@
     <h1>Hello</h1>
     <h1>Hello</h1>
 </div>
+
 {% endblock wrapper %}
