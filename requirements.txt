@@ -6,6 +6,6 @@ pymysql==0.9.2
 mysql-connector==2.2.3
 pytest==3.9.1
 sqlalchemy-utils==0.33.6
-gunicorn
+gunicorn==19.9.0
 meinheld
 flake8
