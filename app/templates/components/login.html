@@ -4,7 +4,30 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-6" id="left-side-modal">
-           
+            <div class="container">
+              <div class="modal-header"></div>
+              <div class="title">Login</div>
+              <form id="login-form" methods="post" action="" novalidate="novalidate">
+                <div class="form-group">
+                  <label for="username" class="control-label">
+                    Username
+                  </label>
+                  <div class="input-field">
+                    <input id="username-input" class="form-control" type="text" name="username" value required title="Please, enter your username" placeholder="john.doe@example.com" />
+                  </div>
+                  <label for="password" class="control-label">
+                    Password
+                  </label>
+                  <div class="input-field">
+                    <input id="password-input" class="form-control" type="password" name="password" value required title="Please, enter your password" placeholder="########" />
+                  </div> 
+                  <p>
+                    Forgot password                  
+                  </p>
+                </div>
+              </form>
+            
+            </div>
           </div>
           <div class="col-6" id="right-side-modal">
             
