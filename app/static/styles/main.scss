@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+@import 'navbar';
+@import 'cover';
 @import 'event';
 
 
@@ -27,10 +30,6 @@ body {
     font-size: 1.5rem;
 }
 
-
-
-
-
-
-
-
+.pre-box {
+    box-shadow: 5px 10px 20px hsla(0, 0, 0, 0.16);
+}

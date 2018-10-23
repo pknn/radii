@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from app import db
 
+
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
@@ -21,7 +22,6 @@ class Event(db.Model):
             return True
         else:
             return False
-
 
     def is_event_upcoming(self):
         # before 3 days
