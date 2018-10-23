@@ -18,9 +18,11 @@
             <li class="px-3 nav-item">
                 <a class="nav-link" href="#">Explore</a>
             </li>
-            <li class="px-3 nav-item" id="login-button">
+            <li class="px-3 nav-item" id="login-button" data-toggle="modal" data-target="#modalLogin">
                 <a class="nav-link" href="#">Login</a>
             </li>
         </ul>
     </div>
 </nav>
+
+{% include "components/login.html" %}
