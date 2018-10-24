@@ -15,7 +15,7 @@
                   <div class="input-field">
                     <input id="username-input" class="form-control" type="text" name="username" value required title="Please, enter your username" placeholder="john.doe@example.com" />
                   </div>
-                  <label for="password" class="control-label">
+                  <label for="password" class="control-label">                
                     Password
                   </label>
                   <div class="input-field">
@@ -25,10 +25,11 @@
                     Forgot password                  
                   </p>
                   <div class="login-button">
-                    <button type="button">Login</button>
+                    <button type="button" class="btn btn-danger">Login</button>
                   </div>
                   <div class="create-account">
-                      Doesn’t have an account yet? <span>Create one</span>
+                      Doesn’t have an account yet? 
+                      <span><a href="#modalRegister" data-toggle="modal" data-dismiss="modal">Create on</a></span>
                   </div>
                 </div>
               </form>
@@ -38,7 +39,7 @@
           <div class="col-6" id="right-side-modal">
             <div class="container">
               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close" aria-label="Close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                   </button>
               </div>
@@ -50,9 +51,7 @@
                 <div class="circle twitter"><i class="fab fa-twitter"></i></div>
                 <div class="circle github"><i class="fab fa-github"></i></div>
               </div>  
-            </div>
-                
-            
+            </div>                            
           </div>
 
         </div>

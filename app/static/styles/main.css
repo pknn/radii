@@ -45,6 +45,15 @@ header {
   border-radius: 0;
 }
 
+#event {
+  background: linear-gradient(rgba(149, 202, 208, 0.6), rgba(149, 202, 208, 0.6)), url(/static/images/cover.jpg);
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.16);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -331,14 +340,6 @@ header {
   background: #bd001f;
 }
 
-body.modal-open .background-container {
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -o-filter: blur(4px);
-  -ms-filter: blur(4px);
-  filter: blur(4px);
-}
-
 .modal-backdrop {
   background-color: #83CFD8aa;
 }
@@ -353,6 +354,7 @@ body.modal-open .background-container {
 .modal-header {
   border-bottom: 0;
   margin-bottom: 30px;
+  padding-right: 0px;
 }
 
 .modal-dialog {
@@ -379,7 +381,7 @@ body.modal-open .background-container {
 
 #left-side-modal {
   background-color: white;
-  box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.43);
+  box-shadow: 13px 10px 23px -10px rgba(0, 0, 0, 0.43);
 }
 #left-side-modal .modal-header {
   padding: 28px;
@@ -415,7 +417,13 @@ body.modal-open .background-container {
   padding-top: 15px;
   padding-bottom: 20px;
 }
-#left-side-modal button {
+#left-side-modal .register-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+#left-side-modal .btn {
   color: white;
   min-width: 170px;
   height: 40px;
