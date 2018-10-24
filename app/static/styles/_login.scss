@@ -22,8 +22,10 @@ body.modal-open .background-container{
 .modal-dialog {
   max-width: 900px;
   margin: 1.75rem auto;
+  
   .modal-content {
-    border-radius: 0px;
+    border-radius: 0px;    
+    border: 0px;
     -webkit-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
     -ms-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
@@ -35,7 +37,7 @@ body.modal-open .background-container{
 .title {
   color: #2E3F5A;
   font-weight: 900; 
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 30px;  
 }
 
@@ -46,7 +48,7 @@ body.modal-open .background-container{
   }
   #login-form {
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 12px;
   }
 
   .input-field input{
@@ -69,7 +71,43 @@ body.modal-open .background-container{
     font-size: 11px;
     color: #E13038;
     text-decoration: underline;
-    margin: 17px auto;
+    margin: 15px auto;
+  }
+
+  .login-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  button {
+    color: white;
+    min-width: 170px;
+    height: 40px;
+    display: flex; 
+    justify-content: center;    
+    text-align: center;
+    background-color: #E13038;
+    border-width: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
+    -ms-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
+    -o-box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
+    box-shadow: 0px 10px 23px -10px rgba(0,0,0,0.43);
+    
+  }
+
+  .create-account {
+    font-size: 11px;
+    margin: 50px auto;
+    span {
+      font-size: 11px;
+      color: #E13038;
+      text-decoration: underline;
+    }
   }
   
 }
@@ -81,7 +119,9 @@ label {
 }
 
 
+#right-side-modal {
 
+}
 
 
 
