@@ -1,5 +1,4 @@
 from app.models import Event,User
-from app import db
 
 def test_event_password():
     u = User(username='poom', email='poom@example.com')

@@ -1,5 +1,5 @@
 import datetime
-from app.models import Event,User
+from app.models import Event
 from app import db
 
 
