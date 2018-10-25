@@ -1,5 +1,5 @@
 import datetime
-from app.models import Event
+from app.models import Event,User
 from app import db
 
 
@@ -17,3 +17,14 @@ def test_event_upcoming():
     db.session.commit()
 
     assert not u.is_event_upcoming()
+
+def test_event_password():
+    u = User(username='poom', email='poom@example.com')
+    u.set_password('mypassword')
+
+    assert not u.check_password('anotherpassword')
+    assert u.check_password('mypassword')
+
+def test_event_username():
+    u = User(username='poom', email='poom@example.com')
+    assert u
