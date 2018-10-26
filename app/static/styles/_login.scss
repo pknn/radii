@@ -38,7 +38,7 @@ body.modal-open > :not(.modal) {
   color: #2E3F5A;
   font-weight: 900; 
   font-size: 20px;
-  padding-left: 30px;  
+  
 }
 
 #left-side-modal {
@@ -47,24 +47,38 @@ body.modal-open > :not(.modal) {
   .modal-header {
     padding: 28px;
   }
-  #login-form {
+  #login-form #register-form{
     padding-left: 30px;
     padding-top: 12px;
   }
 
-  .input-field input{
+  .input-field input:not(#password-input){
     display: block;
     border-radius: 0px;
     width: 100%;
     height: 100%;
     padding: 10px;
     font-size: 14px;
-    color: #696969;
-    
+    color: #696969;    
   }
   input::-webkit-input-placeholder {
     font-size: 12px;
     line-height: 3;
+    
+  }
+  #password-input {
+   
+    display: block;
+    border-radius: 0px;
+  }
+
+
+  #toggleButton {
+    height: 100%;
+    width: 40px;
+    border-radius: 0px;
+    background-color: #fff;
+    border-color: #ccc;
   }
 
   p {
@@ -90,7 +104,7 @@ body.modal-open > :not(.modal) {
     padding-top: 20px;
   }
 
-  .btn {
+  .btn:not(#toggleButton) {
     color: white;
     min-width: 170px;
     height: 40px;
@@ -170,8 +184,6 @@ label {
     color: white;
     font-size: 50px;
   }
-
-
 }
 
 

@@ -376,7 +376,6 @@ header {
   color: #2E3F5A;
   font-weight: 900;
   font-size: 20px;
-  padding-left: 30px;
 }
 
 #left-side-modal {
@@ -386,11 +385,11 @@ header {
 #left-side-modal .modal-header {
   padding: 28px;
 }
-#left-side-modal #login-form {
+#left-side-modal #login-form #register-form {
   padding-left: 30px;
   padding-top: 12px;
 }
-#left-side-modal .input-field input {
+#left-side-modal .input-field input:not(#password-input) {
   display: block;
   border-radius: 0px;
   width: 100%;
@@ -402,6 +401,17 @@ header {
 #left-side-modal input::-webkit-input-placeholder {
   font-size: 12px;
   line-height: 3;
+}
+#left-side-modal #password-input {
+  display: block;
+  border-radius: 0px;
+}
+#left-side-modal #toggleButton {
+  height: 100%;
+  width: 40px;
+  border-radius: 0px;
+  background-color: #fff;
+  border-color: #ccc;
 }
 #left-side-modal p {
   float: right;
@@ -423,7 +433,7 @@ header {
   justify-content: center;
   padding-top: 20px;
 }
-#left-side-modal .btn {
+#left-side-modal .btn:not(#toggleButton) {
   color: white;
   min-width: 170px;
   height: 40px;

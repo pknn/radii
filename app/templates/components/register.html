@@ -7,13 +7,13 @@
               <div class="container">
                 <div class="modal-header"></div>
                 <div class="title">Register</div>
-                <form id="login-form" methods="post" action="" novalidate="novalidate">
+                <form id="register-form" methods="post" action="" novalidate="novalidate">
                   <div class="form-group">
                     <label for="username" class="control-label">
                       Fullname
                     </label>
                     <div class="input-field">
-                      <input id="username-input" class="form-control" type="text" name="username" value required title="Please, enter your username" placeholder="john.doe@example.com" />
+                      <input id="username-input" class="form-control" type="text" name="username" value required title="Please, enter your username" placeholder="John Doe" />
                     </div>
                     <label for="email" class="control-label">
                       Email
@@ -25,7 +25,10 @@
                       Password
                     </label>
                     <div class="input-field">
-                      <input id="password-input" class="form-control" type="password" name="password" value required title="Please, enter your password" placeholder="########" />
+                      <div class="input-group">                
+                        <input id="password-input" class="form-control" type="password" name="password" value required title="Please, enter your password" placeholder="########"/>
+                        <span class="input-group-btn"><button type="button" class="btn btn-light" id="toggleButton"><i class="fas fa-eye"></i></button></span>
+                      </div>
                     </div>                     
                     <div class="register-button">
                       <button type="button" class="btn btn-danger">Register</button>

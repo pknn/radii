@@ -18,8 +18,11 @@
                   <label for="password" class="control-label">                
                     Password
                   </label>
-                  <div class="input-field">
-                    <input id="password-input" class="form-control" type="password" name="password" value required title="Please, enter your password" placeholder="########" />
+                  <div class="input-field">                    
+                    <div class="input-group">                
+                      <input id="password-input" class="form-control" type="password" name="password" value required title="Please, enter your password" placeholder="########"/>
+                      <span class="input-group-btn"><button type="button" class="btn btn-light" id="toggleButton"><i class="fas fa-eye"></i></button></span>
+                    </div>                                                                    
                   </div> 
                   <p>
                     Forgot password                  
@@ -29,7 +32,7 @@
                   </div>
                   <div class="create-account">
                       Doesn’t have an account yet? 
-                      <span><a href="#modalRegister" data-toggle="modal" data-dismiss="modal">Create on</a></span>
+                      <span><a href="#modalRegister" data-toggle="modal" data-dismiss="modal">Create one</a></span>
                   </div>
                 </div>
               </form>
