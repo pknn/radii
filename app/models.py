@@ -1,11 +1,14 @@
 import uuid
 from datetime import datetime, timedelta
 from app import db
+from sqlalchemy import Integer, ForeignKey
+from sqlalchemy.orm import relationship
 
 class Category(db.Model):
+    __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True, unique=True)
     name = db.Column(db.String(64), index=True)
-    # events = db.Column()
+    events = relationship("Event")
 
     def __init__(self, name):
         self.id = uuid.uuid4()
@@ -20,12 +23,14 @@ class Category(db.Model):
 
 
 class Event(db.Model):
+    __tablename__ = 'event'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     description = db.Column(db.String(250))
     location = db.Column(db.String(100), index=True)
     image_url = db.Column(db.String(200), index=True)
     date_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    category_id = db.Column(Integer, ForeignKey('category.id'))
 
     def is_event_nearby(self):
         pass
