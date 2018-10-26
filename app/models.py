@@ -1,5 +1,22 @@
+import uuid
 from datetime import datetime, timedelta
 from app import db
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True)
+    name = db.Column(db.String(64), index=True)
+    # events = db.Column()
+
+    def __init__(self, name):
+        self.id = uuid.uuid4()
+        self.name = name
+
+    def get_id(self):
+        return self.id
+
+    def get_name(self):
+        return self.name
+
 
 
 class Event(db.Model):
