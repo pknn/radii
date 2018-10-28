@@ -443,6 +443,7 @@ label {
 
 #right-side-modal {
   background: rgba(255, 255, 255, 0.76);
+  min-height: 400px;
 }
 #right-side-modal .row {
   padding-left: 20px;
