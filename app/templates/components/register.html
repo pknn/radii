@@ -1,0 +1,75 @@
+<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6" id="left-side-modal">
+            <div class="container">
+              <div class="modal-header">
+                <button type="button" class="close d-sm-none" aria-label="Close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="title">Register</div>
+              <form id="register-form" methods="post" action="" novalidate="novalidate">
+                <div class="form-group">
+                  <label for="username" class="control-label">
+                    Fullname
+                  </label>
+                  <div class="input-field">
+                    <input class="form-control" type="text" name="username" value required title="Please, enter your username"
+                      placeholder="John Doe" />
+                  </div>
+                  <label for="email" class="control-label">
+                    Email
+                  </label>
+                  <div class="input-field">
+                    <input id="email-input" class="form-control" type="text" name="email" value required title="Please, enter your username"
+                      placeholder="john.doe@example.com" />
+                  </div>
+                  <label for="password" class="control-label">
+                    Password
+                  </label>
+                  <div class="input-field">
+                    <div class="input-group">
+                      <input class="form-control combo-field password-field" type="password" name="password" value
+                        required title="Please, enter your password" placeholder="########" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-light combo-field-toggle"><i class="fas fa-eye-slash"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="register-button">
+                    <button type="button" class="btn btn-primary">Register</button>
+                  </div>
+                  <div class="create-account">
+                    Already have an account?
+                    <span><a href="#modalLogin" data-toggle="modal" data-dismiss="modal">Login</a></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6 d-none d-md-block" id="right-side-modal">
+            <div class="container">
+              <div class="modal-header">
+                <button type="button" class="close d-none d-md-block" aria-label="Close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="title">
+                Connect via
+              </div>
+              <div class="row">
+                <div class="circle facebook"><i class="fab fa-facebook-f"></i></div>
+                <div class="circle twitter"><i class="fab fa-twitter"></i></div>
+                <div class="circle github"><i class="fab fa-github"></i></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
