@@ -458,6 +458,9 @@ header {
   color: white;
   font-size: 30px;
 }
+#left-side-modal .gap {
+  padding: 8px;
+}
 
 label {
   color: #2E3F5A;
