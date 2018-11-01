@@ -13,17 +13,19 @@
         </div>
         <ul class="navbar-nav">
             <li class="px-3 nav-item active">
-                <a class="nav-link" href="{{url_for('event')}}">Browse <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url_for('index')}}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="px-3 nav-item">
+                <a class="nav-link" href="{{url_for('event')}}">Browse</a>
             </li>
             <li class="px-3 nav-item">
                 <a class="nav-link" href="#">Explore</a>
             </li>
             <li class="px-3 nav-item" id="login-button" data-toggle="modal" data-target="#modalLogin">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link">Login</a>
             </li>
         </ul>
     </div>
 </nav>
 {% include "components/login.html" %}
 {% include "components/register.html" %}
-
