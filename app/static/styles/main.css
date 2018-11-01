@@ -398,6 +398,11 @@ header {
   background-color: white;
   box-shadow: 13px 10px 23px -10px rgba(0, 0, 0, 0.43);
 }
+@media screen and (min-width: 576px) {
+  #left-side-modal .container {
+    max-width: 100%;
+  }
+}
 #left-side-modal .modal-header {
   padding: 28px;
 }
@@ -434,6 +439,25 @@ header {
   color: #E13038;
   text-decoration: underline;
 }
+#left-side-modal .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0.3px solid #707070;
+  margin-top: 10px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#left-side-modal .fab {
+  font-size: 20px;
+}
+#left-side-modal .fa-github {
+  color: white;
+  font-size: 30px;
+}
 
 label {
   color: #2E3F5A;
@@ -446,7 +470,8 @@ label {
   min-height: 400px;
 }
 #right-side-modal .row {
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 #right-side-modal .circle {
   width: 100px;
@@ -463,24 +488,21 @@ label {
 #right-side-modal .fab {
   font-size: 40px;
 }
-#right-side-modal .facebook {
-  background: #3B5998;
-}
-#right-side-modal .github {
-  background: black;
-}
-#right-side-modal .twitter {
-  background: #55ACEE;
-}
-#right-side-modal .fa-facebook-f {
-  color: white;
-}
-#right-side-modal .fa-twitter {
-  color: white;
-}
 #right-side-modal .fa-github {
   color: white;
   font-size: 50px;
+}
+
+.facebook {
+  background: #3B5998;
+}
+
+.github {
+  background: black;
+}
+
+.fa-facebook-f {
+  color: white;
 }
 
 html,
