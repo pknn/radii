@@ -1,11 +1,23 @@
-<div class="pagination">
-  <div class="circle previous">
-    <a href="#"></a>
-    <i class="fas fa-chevron-left"></i>
-  </div>
-  <div class="page-current"><span>1</span></div>
-  <div class="circle next">
-    <a href="#"></a>
-    <i class="fas fa-chevron-right"></i>
-  </div>
-</div>
+<nav aria-label="Page navigation" id="pagination">
+  <ul class="pagination justify-content-center">    
+    <div class="content previous">
+      <a href="#" aria-label="">
+        <li class="circle previous">
+          <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+        </li>
+      </a>
+    </div>
+  
+    <li class="page-current active"><p class="text-center">1</p></li>
+
+
+    <div class="content previous">
+      <a href="#" aria-label="Next">
+        <li class="circle next">
+          <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>  
+        </li>      
+      </a>
+    </div>
+    
+  </ul>
+</nav>
