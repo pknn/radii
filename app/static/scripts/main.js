@@ -6,10 +6,12 @@ let numberOfEvent = $('.grid .services').length;
 let limitEvent = 9;
 $(".grid .services:gt(" + (limitEvent-1) + ")").hide();
 let totalPages = Math.round(numberOfEvent/limitEvent);
+console.log(totalPages)
 let currentPage = $(".pagination p").text();
+console.log(currentPage)
 
 $(".pagination li.next").on("click", function() {    
-    if(currentPage == totalPages){                
+    if(currentPage == totalPages || totalPages == 0){                
         return false;        
     } else {        
         currentPage++;
