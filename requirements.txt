@@ -8,3 +8,6 @@ pytest
 sqlalchemy-utils
 gunicorn
 meinheld
+flask-login
+psycopg2
+flask-dance
