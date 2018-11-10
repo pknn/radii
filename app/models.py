@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_dance.consumer.backend.sqla import OAuthConsumerMixin, SQLAlchemyBackend
 from app import db
 
 
@@ -17,6 +18,7 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -47,3 +49,8 @@ class Event(db.Model):
             return True
         else:
             return False
+
+
+class OAuth(OAuthConsumerMixin, db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    user = db.relationship(User)
