@@ -331,6 +331,10 @@ header {
   background: #bd001f;
 }
 
+.card img {
+  border-radius: 50%;
+}
+
 html,
 body {
   margin: 0;
