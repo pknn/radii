@@ -1,7 +1,8 @@
+import os
 from flask import render_template
 from app import app
 from datetime import datetime, timedelta
-
+# from flask_login import current_user
 
 @app.route("/")
 def index():
@@ -9,5 +10,5 @@ def index():
 
 
 @app.route("/event")
-def event():    
+def event():
     return render_template("event.html", title="Event")
