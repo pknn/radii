@@ -15,6 +15,10 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"<User {self.username}>"
 
+    def jsonify(self):
+        object_dict = {"id": self.id, "username": self.username, "email": self.email}
+        return object_dict
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
@@ -56,3 +60,4 @@ class Event(db.Model):
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id))
     user = db.relationship(User)
+

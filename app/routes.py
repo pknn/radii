@@ -23,4 +23,4 @@ def login_github():
         resp = github.get("/user")
         user_json = resp.json()
         user = auth.oauth(user_json["id"], user_json["email"])
-        return jsonify(user.id)
+        return jsonify(user.jsonify())
