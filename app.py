@@ -1,8 +1,9 @@
 from app import app
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port="80", debug=True)
 else:
     from meinheld import server
+
     server.listen(("0.0.0.0", 80))
     server.run(app)

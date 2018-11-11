@@ -18,25 +18,31 @@ Find a new circle, around you.
 Activate virtual environment and install required dependencies.
 ```sh
 # Activate virtual environment
-# For linux and macOS
-python3 -m venv venv
+# For linux and macO
 . venv/bin/activate
-pip install -r requirements.txt
+
 ```
 You can use your own database (mysql) or using default sqlite to do the work.
 ```sh
 # Config Database path (mysql)
-export DATABASE_URL=mysql+pysql://username:password@host/database
+export DATABASE_URL=postgresql://localhost/radii_app
+```
+
+Migrate and upgrade database to match the models structure
+```sh
+flask db init
+flask db migrate
+flask db upgrade
 ```
 
 Running app in development or Production
-
+**Application will required ssl certificate in order to work correctly.**
 ```sh
 # Development run
 python app.py
 
 # Production run
-gunicorn app:app --workers=2 --worker-class="egg:meinheld#gunicorn_worker"
+gunicorn app:app --bind 127.0.0.1:5000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker"
 ```
 
 
