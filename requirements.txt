@@ -10,4 +10,4 @@ gunicorn
 meinheld
 flask-login
 psycopg2
-flask-dance
+flask-dance==1.1.0
