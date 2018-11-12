@@ -1,19 +1,19 @@
 version: '3.2'
 services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+
   app:
     image: devinpeace/radii-app:latest
     depends_on:
-      - db
+      - "db"
     links:
-      - db
+      - "db"
     ports:
       - "3000:8000"
     environment:
       - HOST=0.0.0.0
-    command: bash -c "flask db init && flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:8000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
-  db:
-    image: mysql:5.7
-    ports:
-      - "32000:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+      - DATABASE_URL=postgresql://localhost/radii_app
+    command: bash -c "./scripts/wait-for.sh db:5432 -- flask db init && flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:8000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
