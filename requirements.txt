@@ -1,5 +1,5 @@
 Flask
-flask-wtf
+flask-wtf==0.14.2
 flask-sqlalchemy
 flask-migrate
 pymysql
