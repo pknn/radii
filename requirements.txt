@@ -1,6 +1,6 @@
 Flask
 flask-wtf
-flask-sqlalchemy
+flask-sqlalchemy==2.3.2
 flask-migrate
 pymysql
 mysql-connector
