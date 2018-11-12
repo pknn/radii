@@ -5,7 +5,7 @@
 [![Python 3](https://pyup.io/repos/github/pknn1/radii/python-3-shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
 [![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)](https://circleci.com/gh/pknn1/radii)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-[![Site status](https://img.shields.io/website-up-down-green-red/http/radii.devinpeace.com.svg?label=radii%20is)](https://radii.devinpeace.com)  
+![Site status](https://img.shields.io/website-up-down-green-red/http/www.devinpeace.com.svg?label=my-website)  
 Find a new circle, around you.
 
 ## Team member
@@ -51,10 +51,8 @@ gunicorn app:app --bind 127.0.0.1:5000 --workers=2 --worker-class="egg:meinheld#
 
 
 ## Iteration plan and Task board
-Iteration plan and task board can be found in [Project's Wiki](https://github.com/pknn1/radii/wiki/Radii).
+[Link to trello](https://trello.com/b/MqvcS352)
 
 
 ## Issue Tracker
-All of the issue accoring to this project can be found [here](https://github.com/pknn1/radii/issues).
-
-
+All of the issue according to this project can be found [here](https://github.com/pknn1/radii/issues).
