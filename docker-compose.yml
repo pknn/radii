@@ -15,5 +15,4 @@ services:
       - "3000:8000"
     environment:
       - HOST=0.0.0.0
-      - DATABASE_URL=postgresql://localhost/radii_app
     command: bash -c "./scripts/wait-for.sh db:5432 -- flask db init && flask db migrate && flask db upgrade && gunicorn app:app --bind 0.0.0.0:8000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker""
