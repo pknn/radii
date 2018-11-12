@@ -3,4 +3,3 @@ COPY . /radii
 WORKDIR /radii
 RUN . venv/bin/activate
 RUN pip install -r requirements.txt
-ENV DATABASE_URL=mysql+pymysql://root:root@db/radii
