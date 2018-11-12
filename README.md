@@ -5,8 +5,7 @@
 [![Python 3](https://pyup.io/repos/github/pknn1/radii/python-3-shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
 [![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)](https://circleci.com/gh/pknn1/radii)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-[![Site status](https://img.shields.io/website-up-down-green-red/http/radii.devinpeace.com.svg?label=radii%20is)](https://radii.devinpeace.com)  
-Find a new circle, around you.
+![Site status](https://img.shields.io/website-up-down-green-red/http/www.devinpeace.com.svg?label=my-website)  
 
 ## Team member
 | Name | Github Repository
@@ -15,46 +14,71 @@ Find a new circle, around you.
 |Thanapoom Rattanathumawat| [@poom201211](https://github.com/poom201211)
 |Supaluk Jaroensuk| [@SupalukBenz](https://github.com/SupalukBenz)
 
+## Project Description
+Radii is a event recommender powered by Cafeine, which is a API service for recommendation based on [Implicit Collaborative filtering Library](https://github.com/benfred/implicit).
+
+## About Cafeine
+Cafeine is a API service for recommendation based on [Implicit Collaborative filtering Library](https://github.com/benfred/implicit), which is an algorithm for predicting user behavior based on their preferences.
+
+Read more about Collaborative Filtering on [How Does Spotify Know You So Well?](https://medium.com/s/story/spotifys-discover-weekly-how-machine-learning-finds-your-new-music-19a41ab76efe) and [Collaborative Filtering](https://en.wikipedia.org/wiki/Collaborative_filtering).
+
+## Development stacks
+
+- [Flask](http://flask.pocoo.org) as a python framework for Web Application.
+- [Jinja Template](http://jinja.pocoo.org) as a Template engine.
+- [Flask Dance](https://flask-dance.readthedocs.io/) as an OAuth Library.
+- [CircleCI](https://circleci.com) for Continuous Integration platform.
+- [Docker](https://www.docker.com) for Container system.
+- [Google Cloud Platform](https://cloud.google.com) for hosting.
+
 
 ## Build setup
 
 Activate virtual environment and install required dependencies.
+**Linux and macOS**
 ```sh
-# Activate virtual environment
-# For linux and macO
 . venv/bin/activate
-
+pip install -r requirements.txt
 ```
-You can use your own database (mysql) or using default sqlite to do the work.
+**Windows**
 ```sh
-# Config Database path (mysql)
-export DATABASE_URL=postgresql://localhost/radii_app
+/venv/bin/activate
+pip install -r requirements.txt
+```
+***Optional***  
+You can use **your own postgres client database or using default sqlite** to do the work.
+```sh
+# Config Database path (postgres)
+export DATABASE_URL=postgresql://localhost/radii_app    
 ```
 
-Migrate and upgrade database to match the models structure
+Updating database to match data structure.
 ```sh
 flask db init
 flask db migrate
 flask db upgrade
 ```
 
-Running app in development or Production
+Running app in Development or Production using [Gunicorn Meinheld](https://gunicorn.org) as a worker class
 **Application will required ssl certificate in order to work correctly.**
 ```sh
 # Development run
 python app.py
 
+# or if you have flask installed
+export FLASK_APP=app.py
+flask run
+
 # Production run
 gunicorn app:app --bind 127.0.0.1:5000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker"
 ```
 
-
-
 ## Iteration plan and Task board
-Iteration plan and task board can be found in [Project's Wiki](https://github.com/pknn1/radii/wiki/Radii).
+Iteration plans can be found in [project wiki page](https://github.com/pknn1/radii/wiki).  
+Task board can be found in [Trello](https://trello.com/b/MqvcS352).
 
+## Design
+Design template can be found in [Radii Design Template](https://xd.adobe.com/view/2bf8f25a-cc18-4889-780f-fb2bb66b1028-5dc9/?fullscreen).
 
 ## Issue Tracker
-All of the issue accoring to this project can be found [here](https://github.com/pknn1/radii/issues).
-
-
+All of the issue according to this project can be found [here](https://github.com/pknn1/radii/issues).
