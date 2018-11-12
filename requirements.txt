@@ -1,7 +1,7 @@
 Flask
 flask-wtf
 flask-sqlalchemy
-flask-migrate
+flask-migrate==2.3.0
 pymysql
 mysql-connector
 pytest
