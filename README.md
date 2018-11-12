@@ -1,14 +1,17 @@
 # Radii
 
-![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)
+[![Code style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Updates](https://pyup.io/repos/github/pknn1/radii/shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
+[![Python 3](https://pyup.io/repos/github/pknn1/radii/python-3-shield.svg)](https://pyup.io/repos/github/pknn1/radii/)
+[![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)](https://circleci.com/gh/pknn1/radii)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Site status](https://img.shields.io/website-up-down-green-red/http/www.devinpeace.com.svg?label=my-website)  
 Find a new circle, around you.
 
 ## Team member
-| Name | Github Repository |
-|:--|:--|
-|Pakanon Pantisawat| [@pknn1](https://github.com/pknn1)
+| Name | Github Repository
+|:--|:--
+|Pakanon Pantisawat| [@pknn1](https://github.com/pknn1) 
 |Thanapoom Rattanathumawat| [@poom201211](https://github.com/poom201211)
 |Supaluk Jaroensuk| [@SupalukBenz](https://github.com/SupalukBenz)
 
@@ -50,7 +53,6 @@ gunicorn app:app --bind 127.0.0.1:5000 --workers=2 --worker-class="egg:meinheld#
 ## Iteration plan and Task board
 [Link to trello](https://trello.com/b/MqvcS352)
 
-...
 
 ## Issue Tracker
 All of the issue according to this project can be found [here](https://github.com/pknn1/radii/issues).

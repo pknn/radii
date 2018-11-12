@@ -62,6 +62,9 @@ workflows:
       - build:
           requires:
             - test
+          filters:
+            branches:
+              ignore: /feature\/.*/
       - deploy:
           requires:
             - build

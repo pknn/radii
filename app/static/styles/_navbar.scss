@@ -1,0 +1,12 @@
+#login-button {
+    background: #2E3F5A;
+    color: white;
+    border-radius: 40px;
+    box-shadow: 5px 10px 20px hsla(0, 0, 0, 0.16);
+}
+
+@media (min-width: 768px) { 
+    #main-navigation {
+        padding: 0 8rem;
+    }
+}
