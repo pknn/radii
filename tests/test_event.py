@@ -17,3 +17,4 @@ def test_event_upcoming():
     db.session.commit()
 
     assert not u.is_event_upcoming()
+
