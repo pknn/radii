@@ -11,3 +11,7 @@ def index():
 @app.route("/event")
 def event():
     return render_template("event.html", title="Event")
+
+@app.route("/user")
+def user():
+    return render_template("user_profile.html", title="User")

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block wrapper %}
+{% include "components/navbar.html" %}
+<div id="user_profile">
+  <div class="container">
+    {% include "components/user_info.html" %}
+  </div>  
+</div>
+<div class="container events-user">
+  <div class="attended">
+    <div class="title">Attending Events</div>
+  </div>
+  <hr>
+  <div class="suggested">
+    <div class="title">Suggested Events</div>
+  </div>
+</div>
+{% include "components/footer.html" %}
+{% endblock wrapper %}
