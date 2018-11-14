@@ -7,7 +7,7 @@ mysql-connector
 pytest
 sqlalchemy-utils
 gunicorn
-meinheld
+meinheld==0.6.1
 flask-login
 psycopg2
 flask-dance
