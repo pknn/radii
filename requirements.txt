@@ -3,7 +3,7 @@ flask-wtf
 flask-sqlalchemy
 flask-migrate
 pymysql
-mysql-connector
+mysql-connector==2.1.6
 pytest
 sqlalchemy-utils
 gunicorn
