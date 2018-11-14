@@ -6,7 +6,7 @@ pymysql
 mysql-connector
 pytest
 sqlalchemy-utils
-gunicorn
+gunicorn==19.9.0
 meinheld
 flask-login
 psycopg2
