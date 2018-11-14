@@ -2,7 +2,7 @@ Flask==1.0.2
 flask-wtf
 flask-sqlalchemy
 flask-migrate
-pymysql
+pymysql==0.9.2
 mysql-connector
 pytest
 sqlalchemy-utils
