@@ -4,7 +4,7 @@ flask-sqlalchemy
 flask-migrate
 pymysql
 mysql-connector
-pytest
+pytest==4.0.0
 sqlalchemy-utils
 gunicorn
 meinheld
