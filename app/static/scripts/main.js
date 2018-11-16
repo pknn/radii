@@ -15,7 +15,7 @@ $(".pagination li.next").on("click", function() {
         currentPage++;
         $('.pagination li').removeClass("active")
         $('.grid .services').hide();
-        change_page();
+        change_page(); 
     }
 })
 

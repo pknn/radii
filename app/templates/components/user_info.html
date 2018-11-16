@@ -1,20 +1,20 @@
 <div class="card text-center shadow-lg">
   <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar shadow">
   <div class="card-body">
-    <p class="card-title">{{ username }}</p>
+    <p class="card-title">{{ user.username }}</p>
     <div class="row">
       <div class="user-info">
-        <span class="number">13</span>
+        <span class="number">{{ attended_len }}</span>
         <br>
         <span class="info attended">Attended</span>
       </div>
       <div class="user-info">
-        <span class="number">26</span>
+        <span class="number">{{ interested_len }}</span>
         <br>
         <span class="info interested">Interested</span>
       </div>
       <div class="user-info">
-        <span class="number">33</span>
+        <span class="number">{{ attending_len }}</span>
         <br>
         <span class="info attended">Attending</span>
         

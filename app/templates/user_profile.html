@@ -10,10 +10,15 @@
 <div class="container events-user">
   <div class="attended">
     <div class="title">Attending Events</div>
+    <div class="grid">
+      {% for event in user.attending %}
+      {% include "components/event_card.html" %}
+      {% endfor %}
+    </div>
   </div>
   <hr>
   <div class="suggested">
-    <div class="title">Suggested Events</div>
+    <div class="title">Suggested Events</div>    
   </div>
 </div>
 {% include "components/footer.html" %}
