@@ -1,5 +1,9 @@
 <div class="card text-center shadow-lg">
+  {% if user.image_url_user %}
+  <img src="{{ user.image_url_user }}" alt="Avatar" class="avatar shadow">
+  {% else %}
   <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar shadow">
+  {% endif %}
   <div class="card-body">
     <p class="card-title">{{ user.username }}</p>
     <div class="row">

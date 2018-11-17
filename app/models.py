@@ -38,6 +38,7 @@ class User(db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    image_url_user = db.Column(db.String(200))
     interested = db.relationship('Event', secondary=interested_events, backref=db.backref('interest',lazy='dynamic'))
     attending = db.relationship('Event', secondary=attending_events, backref=db.backref('attending',lazy='dynamic'))
     attended = db.relationship('Event', secondary=attended_events, backref=db.backref('attended',lazy='dynamic'))
