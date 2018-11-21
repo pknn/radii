@@ -1,8 +1,9 @@
-from flask import render_template, redirect, url_for, jsonify
+from flask import render_template, redirect, url_for, jsonify, request
 from app import app
 from app import auth
 from flask_dance.contrib.github import github
 from flask_login import login_user
+import sys
 
 
 @app.route("/")
@@ -24,3 +25,8 @@ def login_github():
         user_json = resp.json()
         user = auth.oauth(user_json["id"], user_json["email"])
         return jsonify(user.jsonify())
+
+
+@app.route("/register", methods=["POST"])
+def register():
+    return auth.register(request.form)

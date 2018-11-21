@@ -25,15 +25,20 @@ class Category(db.Model):
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
+    fullname = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
 
+    def __init__(self, fullname, email, password):
+        self.fullname = fullname
+        self.email = email
+        self.password_hash = generate_password_hash(password)
+
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<User {self.fullname}>"
 
     def jsonify(self):
-        object_dict = {"id": self.id, "username": self.username, "email": self.email}
+        object_dict = {"id": self.id, "fullname": self.fullname, "email": self.email}
         return object_dict
 
     def set_password(self, password):
