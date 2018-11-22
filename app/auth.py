@@ -20,9 +20,11 @@ def oauth(user_id, email):
     return user
 
 
-def register(form):
-    print(form, file=sys.stdout)
-    new_user = User(form["fullname"], form["email"], form["password"])
-    db.session.add(new_user)
-    db.session.commit()
-    return ""
+def register(name, email, password):
+    new_user = User(name, email, password)
+    UserController.create_user(new_user)
+    return new_user
+
+
+def login(user_id, password):
+    pass
