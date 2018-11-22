@@ -2,8 +2,8 @@ Flask==1.0.2
 flask-wtf==0.14.2
 flask-sqlalchemy==2.3.2
 flask-migrate==2.3.0
-pytest==3.10.0
-sqlalchemy-utils==0.33.8
+pytest==4.0.0
+sqlalchemy-utils==0.33.6
 gunicorn==19.9.0
 meinheld==0.6.1
 flake8==3.6.0
