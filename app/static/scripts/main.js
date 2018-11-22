@@ -12,7 +12,6 @@ $('document').ready(function () {
         }
     })
 });
-
 let numberOfEvent = $('.grid .services').length;
 let limitEvent = 9;
 $(".grid .services:gt(" + (limitEvent-1) + ")").hide();

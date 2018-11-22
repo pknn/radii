@@ -1,3 +1,12 @@
+#event {
+  background: linear-gradient(rgba(149, 202, 208, 0.6), rgba(149, 202, 208, 0.6)), url(/static/images/cover.jpg);
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.16);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -177,6 +186,22 @@
     color: #2E3F5A;
     font-size: 20px;
   }
+ .box:before {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f078";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background: #f8042c;
+  text-align: center;
+  font-size: 28px;
+  line-height: 50px;
+  pointer-events: none;
+ }
 
   .page-current {
     width: 55px;
