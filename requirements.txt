@@ -9,4 +9,4 @@ meinheld==0.6.1
 flake8==3.6.0
 flask-login
 psycopg2
-flask-dance
+flask-dance==1.1.0
