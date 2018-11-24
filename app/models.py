@@ -35,7 +35,7 @@ class User(db.Model):
         self.password_hash = generate_password_hash(password)
 
     def __repr__(self):
-        return f"<User {self.fullname}>"
+        return f"<User {self.display_name}>"
 
     def get_id(self):
         return self.id
@@ -75,10 +75,8 @@ class Event(db.Model):
 
     def is_event_nearby(self):
         pass
-        # return Event.location
 
     def is_event_passed(self):
-        # return true if passed and false if not
         present = datetime.utcnow()
         event = self.date_time
         if event < present:
@@ -87,7 +85,6 @@ class Event(db.Model):
             return False
 
     def is_event_upcoming(self):
-        # before 3 days
         event = self.date_time
         upcoming = datetime.utcnow() + timedelta(days=3)
         if upcoming < event:

@@ -22,12 +22,11 @@ def login_github():
     else:
         resp = github.get("/user")
         user_json = resp.json()
-        print(user_json, file=sys.stdout)
-        user = auth.oauth(user_json["email"])
+        user = auth.oauth(user_json["login"], user_json["email"])
         return jsonify(user.jsonify())
 
 
 @app.route("/register", methods=["POST"])
 def register():
-    name, email, password = request.form
-    return auth.register(name, email, password)
+    display_name, email, password = request.form.values()
+    return jsonify(auth.register(display_name, email, password).jsonify())

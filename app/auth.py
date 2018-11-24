@@ -11,17 +11,17 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-def oauth(user_id, email):
-    user = User.query.get(user_id)
+def oauth(display_name, email):
+    user = User.query.filter_by(display_name=display_name).first()
     if user is None:
-        user = User(id=user_id, fullname=email, email=email)
+        user = User(display_name=display_name, email=email)
         UserController.create_user(user)
     login_user(user)
     return user
 
 
-def register(name, email, password):
-    new_user = User(name, email, password)
+def register(display_name, email, password):
+    new_user = User(display_name=display_name, email=email, password=password)
     UserController.create_user(new_user)
     return new_user
 

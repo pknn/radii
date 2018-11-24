@@ -433,6 +433,10 @@ body {
   background-color: #EAEAEA;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .container-fluid {
   padding: 0px;
 }
