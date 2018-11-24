@@ -8,5 +8,5 @@
 # Generate output
 .DS_Store
 
-# Migration files
-migrations/
+# Request File
+request.http

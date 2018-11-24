@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, jsonify, request
 from app import app
 from app import auth
 from flask_dance.contrib.github import github
+import sys
 
 
 @app.route("/")
@@ -21,7 +22,8 @@ def login_github():
     else:
         resp = github.get("/user")
         user_json = resp.json()
-        user = auth.oauth(user_json["id"], user_json["email"])
+        print(user_json, file=sys.stdout)
+        user = auth.oauth(user_json["email"])
         return jsonify(user.jsonify())
 
 
