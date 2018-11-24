@@ -11,13 +11,13 @@
                 </button>
               </div>
               <div class="title">Register</div>
-              <form id="register-form" methods="post" action="" novalidate="novalidate">
+              <form id="register-form" method="POST" action="/register">
                 <div class="form-group">
                   <label for="username" class="control-label">
                     Fullname
                   </label>
                   <div class="input-field">
-                    <input class="form-control" type="text" name="username" value required title="Please, enter your username"
+                    <input class="form-control" type="text" name="fullname" value required title="Please, enter your username"
                       placeholder="John Doe" />
                   </div>
                   <label for="email" class="control-label">
@@ -46,7 +46,7 @@
                     </div>
                   </div>                
                   <div class="register-button">
-                    <button type="button" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                   </div>
                   <div class="create-account">
                     Already have an account?
@@ -72,7 +72,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
