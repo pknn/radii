@@ -13,11 +13,11 @@
               <div class="title">Login</div>
               <form id="login-form" methods="post" action="" novalidate="novalidate">
                 <div class="form-group">
-                  <label for="username" class="control-label">
-                    Username
+                  <label for="email" class="control-label">
+                    Email
                   </label>
                   <div class="input-field">
-                    <input class="form-control" type="text" name="username" value required title="Please, enter your username"
+                    <input class="form-control" type="text" name="email" value required title="Please, enter your email"
                       placeholder="john.doe@example.com" />
                   </div>
                   <label for="password" class="control-label">
@@ -62,13 +62,8 @@
                 Connect via
               </div>
               <div class="row">
-                <div class="circle facebook"><i class="fab fa-facebook-f"></i></div>
-                <div class="circle twitter"><i class="fab fa-twitter"></i></div>
-                <div class="circle github">
-                  <a href="{{url_for('login_github')}}">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+                <div class="circle facebook"><i class="fab fa-facebook-f"></i></div>                
+                <div class="circle github"><i class="fab fa-github"></i></div>
               </div>
             </div>
           </div>
