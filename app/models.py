@@ -70,10 +70,16 @@ class Event(db.Model):
             return False
 
     def interested_count(self):
+        if(self.interested <= 0):
+            return 0
         return self.interested
 
     def attending_count(self):
+        if (self.attending <= 0):
+            return 0
         return self.attending
 
     def attended_count(self):
+        if (self.attended <= 0):
+            return 0
         return self.attended

@@ -33,4 +33,18 @@ class TestUserProfile(unittest.TestCase):
         print(e.attended_count())
         self.assertEqual(e.attended_count() + 5, 8)
 
+    # Values would be set to 0 when an invalid value is parsed in
+    def test_invalid_interested_event(self):
+        e = Event(interested=-5)
+        print(e.interested_count())
+        self.assertEqual(e.interested_count(), 0)
 
+    def test_invalid_attending_event(self):
+        e = Event(attending=-1)
+        print(e.attending_count())
+        self.assertEqual(e.attending_count(), 0)
+
+    def test_invalid_attended_event(self):
+        e = Event(attended=-6)
+        print(e.attended_count())
+        self.assertEqual(e.attended_count(), 0)
