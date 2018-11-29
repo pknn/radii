@@ -9,7 +9,9 @@
     </div>
     <div class="grid">
       {% for event in events %}
+      <a href="{{ url_for('event', event_id=event.event_id) }}">
       {% include "components/event_card.html" %}
+      </a>
       {% endfor %}
     </div>
     <div class="row">

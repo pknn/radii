@@ -54,25 +54,26 @@
     text-align: left;
     font-size: 18px;
   }
+  .double-border {    
+    background: #ffffff;
+    border: 1px solid #2c3e50;
+    padding: 2em;
+    width: 70%;  
+    position: relative;
+    margin: 0 auto;
+  }
+  .double-border:before {
+    border: 1px solid #bdc3c7;
+    content: "";  
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    pointer-events: none;
+  }
 }
-.double-border {    
-  background: #ffffff;
-  border: 1px solid #2c3e50;
-  padding: 2em;
-  width: 70%;  
-  position: relative;
-  margin: 0 auto;
-}
-.double-border:before {
-  border: 1px solid #bdc3c7;
-  content: "";  
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
-  pointer-events: none;
-}
+
 
 
 
