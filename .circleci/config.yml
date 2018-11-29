@@ -16,6 +16,7 @@ jobs:
           command: |
             . venv/bin/activate
             flask db init
+            sed -i "10i\import sqlalchemy_utils" ./migrations/script.py.mako
             flask db migrate
             flask db upgrade
       - run:
