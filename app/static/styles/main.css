@@ -481,8 +481,7 @@ label {
   text-align: left;
   font-size: 18px;
 }
-
-.double-border {
+.description-show .double-border {
   background: #ffffff;
   border: 1px solid #2c3e50;
   padding: 2em;
@@ -490,8 +489,7 @@ label {
   position: relative;
   margin: 0 auto;
 }
-
-.double-border:before {
+.description-show .double-border:before {
   border: 1px solid #bdc3c7;
   content: "";
   position: absolute;
