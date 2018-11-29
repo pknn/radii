@@ -48,3 +48,4 @@ class TestUserProfile(unittest.TestCase):
         e = Event(attended=-6)
         print(e.attended_count())
         self.assertEqual(e.attended_count(), 0)
+
