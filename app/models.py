@@ -1,12 +1,16 @@
 import uuid
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
+
+from flask_dance.consumer.backend.sqla import OAuthConsumerMixin
+from flask_login import UserMixin
 from app import db
+
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True)
     name = db.Column(db.String(64), index=True)
-    events = db.relationship('Event', backref='category')
+    events = db.relationship("Event", backref="category")
 
     def __init__(self, name):
         self.id = uuid.uuid4()
@@ -18,14 +22,40 @@ class Category(db.Model):
     def get_name(self):
         return self.name
 
+
 class User(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    display_name = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
 
+    def __init__(self, id=None, display_name="", email="", password=""):
+        self.display_name = display_name
+        self.email = email
+        self.password_hash = generate_password_hash(password)
+
     def __repr__(self):
-        return f'<User {self.username}>'
+        return f"<User {self.fullname}>"
+
+    def get_id(self):
+        return self.id
+
+    def is_anonymous(self):
+        return False
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def jsonify(self):
+        object_dict = {
+            "id": self.id,
+            "display_name": self.display_name,
+            "email": self.email,
+        }
+        return object_dict
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -45,7 +75,6 @@ class Event(db.Model):
     interested = db.Column(db.Integer)
     attending = db.Column(db.Integer)
     attended = db.Column(db.Integer)
-
 
     def is_event_nearby(self):
         pass
@@ -83,3 +112,8 @@ class Event(db.Model):
         if (self.attended <= 0):
             return 0
         return self.attended
+
+class OAuth(OAuthConsumerMixin, db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    user = db.relationship(User)
+

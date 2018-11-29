@@ -5,11 +5,11 @@
 .pytest_cache
 *.pyc
 
-# Virtual environment
-venv/
-
 # Generate output
 .DS_Store
 
-# Migration files
+# Migration directory
 migrations/
+
+# Request File
+request.http

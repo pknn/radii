@@ -1,6 +1,6 @@
-<div class="container" id="event-text">
+<div class="container" id="event-container">
   <p>Event .</p>
-  <div class="location-container">
+  <div class="location-container shadow-lg">
     <div class="row">
       <div class="col-6">
         <div class="input-field first-wrap">
@@ -8,14 +8,17 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="box">
-          <select>
-            <option>All</option>
-            <option>The first option</option>
-            <option>The second option</option>
-            <option>The third option</option>
-          </select>
+        <div class="dropdown">
+            <button class="box dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
         </div>
+        
       </div>
     </div>
   </div>

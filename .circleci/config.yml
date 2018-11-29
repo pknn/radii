@@ -9,7 +9,6 @@ jobs:
       - run:
           name: Setup venv and installing dependencies
           command: |
-            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - run:
@@ -17,6 +16,7 @@ jobs:
           command: |
             . venv/bin/activate
             flask db init
+            sed -i "10i\import sqlalchemy_utils" ./migrations/script.py.mako
             flask db migrate
             flask db upgrade
       - run:
@@ -34,7 +34,6 @@ jobs:
           name: Setup venv and installing dependencies
           command: |
             echo 'export IMAGE_NAME=radii-app' >> $BASH_ENV
-            python3 -m venv venv
             . venv/bin/activate
             sudo pip install -r requirements.txt
       - setup_remote_docker:
