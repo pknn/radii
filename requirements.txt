@@ -11,3 +11,4 @@ flask-dance==1.1.0
 flask-login==0.4.1
 psycopg2==2.7.6.1
 psycopg2-binary
+pyOpenSSL
