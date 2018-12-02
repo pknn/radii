@@ -62,7 +62,6 @@ header {
   background-position: bottom;
   background-attachment: fixed;
   background-size: cover;
-  height: 100%;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.16);
 }
 
@@ -144,7 +143,6 @@ header {
   height: 200px;
   bottom: 0;
   width: 100%;
-  margin-top: 90px;
   text-align: center;
 }
 #footer p {
@@ -424,6 +422,84 @@ label {
   color: white;
 }
 
+.event-descript {
+  margin-bottom: 60px;
+}
+
+.blog-img-container {
+  margin-bottom: -50px;
+  z-index: -1;
+  padding-bottom: 70px;
+  background: rgba(0, 0, 0, 0.15);
+}
+.blog-img-container .img-header {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.blog-body {
+  overflow-wrap: break-word;
+  width: 80%;
+  background-color: #ffffff;
+  padding: 20px;
+}
+.blog-body .name-event {
+  color: #2E3F5A;
+  font-size: 35px;
+  font-weight: 500;
+}
+.blog-body .date-event {
+  font-size: 14px;
+}
+
+.location-info {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  padding: 27px;
+  margin-top: 40px;
+  font-size: 14px;
+  padding-left: 25px;
+}
+.location-info .icon-location {
+  margin-right: 5px;
+}
+.location-info a {
+  color: #000000;
+  font-size: 15px;
+}
+
+.description-show {
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.description-show p {
+  color: #2E3F5A;
+  text-align: left;
+  font-size: 18px;
+}
+.description-show .double-border {
+  background: #ffffff;
+  border: 1px solid #2c3e50;
+  padding: 3em;
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+}
+.description-show .double-border:before {
+  border: 1px solid #bdc3c7;
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  pointer-events: none;
+}
+
 html,
 body {
   margin: 0;
@@ -439,6 +515,7 @@ a:hover {
 
 .container-fluid {
   padding: 0px;
+  height: 100%;
 }
 
 .pre-box {

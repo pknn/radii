@@ -1,8 +1,7 @@
-from flask import render_template, redirect, url_for, jsonify, request
+from flask import render_template
 from app import app
-from app import auth
-from flask_dance.contrib.github import github
-import sys
+from app.models import User, Event
+from datetime import datetime, timedelta
 
 
 @app.route("/")
@@ -14,6 +13,10 @@ def index():
 def event():
     return render_template("event.html", title="Event")
 
+@app.route("/event/<event_id>")
+def event_descript(event_id):
+    event_info = Event.query.filter_by(event_id=event_id).first()
+    return render_template("event_description.html", event_info="event_info")
 
 @app.route("/login_github")
 def login_github():

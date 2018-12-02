@@ -65,13 +65,16 @@ class User(db.Model):
 
 
 class Event(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     description = db.Column(db.String(250))
     location = db.Column(db.String(100), index=True)
     image_url = db.Column(db.String(200), index=True)
     date_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    category_id = db.Column(db.Integer, db.ForeignKey("category.id"))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    interested = db.Column(db.Integer)
+    attending = db.Column(db.Integer)
+    attended = db.Column(db.Integer)
 
     def is_event_nearby(self):
         pass
@@ -92,7 +95,22 @@ class Event(db.Model):
         else:
             return False
 
+    def interested_count(self):
+        if(self.interested <= 0):
+            return 0
+        return self.interested
+
+    def attending_count(self):
+        if (self.attending <= 0):
+            return 0
+        return self.attending
+
+    def attended_count(self):
+        if (self.attended <= 0):
+            return 0
+        return self.attended
 
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id))
     user = db.relationship(User)
+

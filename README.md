@@ -8,7 +8,7 @@
 ![Site status](https://img.shields.io/website-up-down-green-red/http/www.devinpeace.com.svg?label=my-website)  
 
 ## Team member
-| Name | Github Repository
+| Name | Github 
 |:--|:--
 |Pakanon Pantisawat| [@pknn1](https://github.com/pknn1) 
 |Thanapoom Rattanathumawat| [@poom201211](https://github.com/poom201211)
@@ -18,7 +18,7 @@
 Radii is a event recommender powered by Cafeine, which is a API service for recommendation based on [Implicit Collaborative filtering Library](https://github.com/benfred/implicit).
 
 ## About Cafeine
-Cafeine is a API service for recommendation based on [Implicit Collaborative filtering Library](https://github.com/benfred/implicit), which is an algorithm for predicting user behavior based on their preferences.
+Cafeine is a API service for recommendation based on [Implicit Collaborative Filtering Library](https://github.com/benfred/implicit), which is an algorithm for predicting user behavior based on their preferences.
 
 Read more about Collaborative Filtering on [How Does Spotify Know You So Well?](https://medium.com/s/story/spotifys-discover-weekly-how-machine-learning-finds-your-new-music-19a41ab76efe) and [Collaborative Filtering](https://en.wikipedia.org/wiki/Collaborative_filtering).
 
@@ -73,12 +73,9 @@ flask run
 gunicorn app:app --bind 127.0.0.1:5000 --workers=2 --worker-class="egg:meinheld#gunicorn_worker"
 ```
 
-## Iteration plan and Task board
-Iteration plans can be found in [project wiki page](https://github.com/pknn1/radii/wiki).  
-Task board can be found in [Trello](https://trello.com/b/MqvcS352).
+## Developer Resources
 
-## Design
-Design template can be found in [Radii Design Template](https://xd.adobe.com/view/2bf8f25a-cc18-4889-780f-fb2bb66b1028-5dc9/?fullscreen).
-
-## Issue Tracker
-All of the issue according to this project can be found [here](https://github.com/pknn1/radii/issues).
+* Iteration plans  in [project wiki](https://github.com/pknn1/radii/wiki/Radii).  
+* Task board  on [Trello](https://trello.com/b/MqvcS352).
+* Design template in [Radii Design Template](https://xd.adobe.com/view/2bf8f25a-cc18-4889-780f-fb2bb66b1028-5dc9/?fullscreen).
+* Issues are in Github issuec tracker [here](https://github.com/pknn1/radii/issues).
