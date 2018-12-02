@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, jsonify, request
+from flask import render_template, redirect, url_for, jsonify, request, make_response
 from app import app
 from app import auth
 from flask_dance.contrib.github import github
@@ -31,3 +31,10 @@ def login_github():
 def register():
     name, email, password = request.form
     return auth.register(name, email, password)
+
+
+@app.route("/login", methods=["POST"])
+def login():
+    email, password = request.form
+    if auth.login(email, password) == None:
+        return None
