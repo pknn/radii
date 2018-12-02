@@ -2,7 +2,8 @@ from app import app
 from app.models import User
 from app import login_manager, db
 from app.controllers import UserController
-from flask_login import login_user
+from flask import render_template, redirect, url_for
+from flask_login import login_user, current_user
 import sys
 
 
@@ -26,6 +27,14 @@ def register(display_name, email, password):
     return new_user
 
 
-def login(user_id, password):
-
-    pass
+def login(email, password):
+    if current_user.is_authenticated:
+        return redirect("/")
+    user = User.query.filter_by(email=email).first()
+    if user:
+        if user.check_password(password):
+            return user
+        else:
+            return None
+    else:
+        return None

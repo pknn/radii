@@ -44,4 +44,6 @@ def register():
 
 @app.route("/login", methods=["POST"])
 def login():
-    pass
+    email, password = request.form
+    if auth.login(email, password) == None:
+        return None
