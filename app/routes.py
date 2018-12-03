@@ -5,6 +5,7 @@ from app.models import User, Event
 from flask_dance.contrib.github import github
 import sys
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -12,10 +13,16 @@ def index():
 
 @app.route("/event", methods=["GET", "POST"])
 def event():
-    if request.method == 'POST':
-        name, description, location, image_url, date_time, category_name = request.json.values()
-        return jsonify(EventController.create_event(name, description, location, image_url, date_time, category_name).jsonify())
-        
+    if request.method == "POST":
+        name, description, location, image_url, date_time, category_name = (
+            request.json.values()
+        )
+        return jsonify(
+            EventController.create_event(
+                name, description, location, image_url, date_time, category_name
+            ).jsonify()
+        )
+
     else:
         return render_template("event.html", title="Event")
 

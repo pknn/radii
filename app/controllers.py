@@ -1,6 +1,7 @@
 from app import db
 from app.models import User, Event, Category
 
+
 class UserController:
     @staticmethod
     def create_user(user):
@@ -9,6 +10,7 @@ class UserController:
 
     def get_user(id):
         return User.query.get(id)
+
 
 class EventController:
     @staticmethod
@@ -22,4 +24,3 @@ class EventController:
         db.session.add(event)
         db.session.commit()
         return event
-
