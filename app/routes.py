@@ -21,7 +21,6 @@ def event():
                 name, description, location, image_url, date_time, category_name
             ).jsonify()
         )
-
     else:
         return render_template("event.html", title="Event")
 
