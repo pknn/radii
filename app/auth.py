@@ -1,10 +1,8 @@
-from app import app
 from app.models import User
-from app import login_manager, db
+from app import login_manager
 from app.controllers import UserController
-from flask import render_template, redirect, url_for
+from flask import redirect
 from flask_login import login_user, current_user
-import sys
 
 
 @login_manager.user_loader
@@ -15,8 +13,7 @@ def load_user(user_id):
 def oauth(display_name, email):
     user = User.query.filter_by(display_name=display_name).first()
     if user is None:
-        user = User(display_name=display_name, email=email)
-        UserController.create_user(user)
+        user = UserController.create_user(display_name, email)
     login_user(user)
     return user
 

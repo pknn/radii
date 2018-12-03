@@ -1,9 +1,8 @@
 from flask import render_template, redirect, url_for, request, make_response, jsonify
 from app import app, auth
 from app.controllers import EventController
-from app.models import User, Event
+from app.models import Event
 from flask_dance.contrib.github import github
-import sys
 
 
 @app.route("/")
@@ -57,5 +56,5 @@ def register():
 @app.route("/login", methods=["POST"])
 def login():
     email, password = request.form
-    if auth.login(email, password) == None:
+    if auth.login(email, password) is None:
         return None

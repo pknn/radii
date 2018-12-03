@@ -4,9 +4,11 @@ from app.models import User, Event, Category
 
 class UserController:
     @staticmethod
-    def create_user(user):
+    def create_user(display_name, email):
+        user = User(display_name, email)
         db.session.add(user)
         db.session.commit()
+        return user
 
     def get_user(id):
         return User.query.get(id)

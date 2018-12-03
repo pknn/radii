@@ -1,8 +1,6 @@
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from flask_dance.consumer.backend.sqla import OAuthConsumerMixin
-from flask_login import UserMixin
 from app import db
 
 
