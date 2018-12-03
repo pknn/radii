@@ -1,18 +1,23 @@
-from flask import render_template, redirect, url_for, request, make_response
+from flask import render_template, redirect, url_for, request, make_response, jsonify
 from app import app, auth
+from app.controllers import EventController
 from app.models import User, Event
-from datetime import datetime, timedelta
 from flask_dance.contrib.github import github
-
+import sys
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
-@app.route("/event")
+@app.route("/event", methods=["GET", "POST"])
 def event():
-    return render_template("event.html", title="Event")
+    if request.method == 'POST':
+        name, description, location, image_url, date_time, category_name = request.json.values()
+        return jsonify(EventController.create_event(name, description, location, image_url, date_time, category_name).jsonify())
+        
+    else:
+        return render_template("event.html", title="Event")
 
 
 @app.route("/event/<event_id>")
