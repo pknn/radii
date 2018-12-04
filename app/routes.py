@@ -38,6 +38,7 @@ def event_dump():
 @app.route("/event/<event_id>")
 def event_descript(event_id):
     event_info = Event.query.filter_by(event_id=event_id).first()
+    
     return render_template("event_description.html", event_info=event_info)
 
 
