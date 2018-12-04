@@ -36,7 +36,9 @@ class EventController:
     @staticmethod
     def dump_event(dump):
         for i in dump:
-            name, description, location, image_url, date_time, category_name = i.values()
+            name, description, location, image_url, date_time, category_name = (
+                i.values()
+            )
             category = Category.query.filter_by(name=category_name).first()
             if category is None:
                 category = Category(category_name)
