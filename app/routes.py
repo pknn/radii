@@ -1,10 +1,9 @@
-from flask import render_template, redirect, url_for, request, make_response, 
+from flask import render_template, redirect, url_for, request, jsonify
 from flask_dance.contrib.github import github
 from flask_login import current_user
 from app import app, auth
 from app.controllers import EventController, AuthController
 from app.models import Event
-
 
 
 @app.route("/")
@@ -55,7 +54,7 @@ def register():
 def login():
     email, password = request.form
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for("index"))
     else:
         AuthController.login(email, password)
-        return redirect(url_for('index'))
+        return redirect(url_for("index"))
