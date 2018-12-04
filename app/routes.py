@@ -23,7 +23,8 @@ def event():
             ).jsonify()
         )
     else:
-        return render_template("event.html", title="Event")
+        events = EventController.get_all_event()
+        return render_template("event.html", title="Event", events=events)
 
 
 @app.route("/event/<event_id>")

@@ -14,6 +14,11 @@ class UserController:
     def get_user(id):
         return User.query.get(id)
 
+    @staticmethod
+    def get_user_liked_event(user_id):
+        user = User.query.get(user_id)
+        return user.liked_events
+
 
 class EventController:
     @staticmethod
@@ -27,6 +32,11 @@ class EventController:
         db.session.add(event)
         db.session.commit()
         return event
+
+    @staticmethod
+    def get_all_event():
+        events = Event.query.all()
+        return events
 
 
 @login_manager.user_loader
