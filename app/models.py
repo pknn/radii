@@ -46,10 +46,10 @@ user_attended_event = db.Table(
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True)
-    description = db.Column(db.String(250))
-    location = db.Column(db.String(100), index=True)
-    image_url = db.Column(db.String(200), index=True)
+    name = db.Column(db.String(200), index=True)
+    description = db.Column(db.Text)
+    location = db.Column(db.String(200), index=True)
+    image_url = db.Column(db.String(400), index=True)
     date_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     category_id = db.Column(db.Integer, db.ForeignKey(Category.id))
     liked_users = db.relationship(

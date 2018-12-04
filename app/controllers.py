@@ -34,6 +34,20 @@ class EventController:
         return event
 
     @staticmethod
+    def dump_event(dump):
+        for i in dump:
+            name, description, location, image_url, date_time, category_name = i.values()
+            category = Category.query.filter_by(name=category_name).first()
+            if category is None:
+                category = Category(category_name)
+                db.session.add(category)
+            event = Event(name, description, location, image_url, date_time)
+            category.add_event(event)
+            db.session.add(event)
+        db.session.commit()
+        return True
+
+    @staticmethod
     def get_all_event():
         events = Event.query.all()
         return events

@@ -4,7 +4,7 @@ from flask_login import current_user
 from app import app, auth
 from app.controllers import EventController, AuthController
 from app.models import Event
-
+import sys
 
 @app.route("/")
 def index():
@@ -26,6 +26,10 @@ def event():
         events = EventController.get_all_event()
         return render_template("event.html", title="Event", events=events)
 
+@app.route("/event_dump", methods=["POST"])
+def event_dump():
+    dump = request.json
+    return jsonify(EventController.dump_event(dump))
 
 @app.route("/event/<event_id>")
 def event_descript(event_id):
