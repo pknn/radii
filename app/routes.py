@@ -1,8 +1,10 @@
-from flask import render_template, redirect, url_for, request, make_response, jsonify
-from app import app, auth
-from app.controllers import EventController
-from app.models import Event
+from flask import render_template, redirect, url_for, request, make_response, 
 from flask_dance.contrib.github import github
+from flask_login import current_user
+from app import app, auth
+from app.controllers import EventController, AuthController
+from app.models import Event
+
 
 
 @app.route("/")
@@ -28,7 +30,7 @@ def event():
 @app.route("/event/<event_id>")
 def event_descript(event_id):
     event_info = Event.query.filter_by(event_id=event_id).first()
-    return render_template("event_description.html", event_info="event_info")
+    return render_template("event_description.html", event_info=event_info)
 
 
 @app.route("/login_github")
@@ -38,22 +40,22 @@ def login_github():
     else:
         user_response = github.get("/user")
         user_json = user_response.json()
-        user = auth.oauth(user_json["login"], user_json["email"])
-        response = make_response(redirect(url_for("index")))
-        response.set_cookie("id", str(user.id))
-        response.set_cookie("email", user.email)
-        return response
+        AuthController.oauth(user_json["login"], user_json["email"])
+        return redirect(url_for("index"))
 
 
 @app.route("/register", methods=["POST"])
 def register():
     display_name, email, password = request.form.values()
-    auth.register(display_name, email, password)
+    AuthController.register(display_name, email, password)
     return redirect(url_for("index"))
 
 
 @app.route("/login", methods=["POST"])
 def login():
     email, password = request.form
-    if auth.login(email, password) is None:
-        return None
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    else:
+        AuthController.login(email, password)
+        return redirect(url_for('index'))

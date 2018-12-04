@@ -51,17 +51,12 @@ class AuthController:
 
     @staticmethod
     def login(email, password):
-        if current_user.is_authentucated:
-            # DO SOMETHING
-            pass
         user = User.query.filter_by(email=email).first()
-        if user:
-            if user.check_password(password):
-                # DO SOMETHING
-                pass
-            else:
-                # DO SOMETHING
-                pass
+        if user is None:
+            return False
         else:
-            # DO SOMETHING
-            pass
+            if user.check_password(password):
+                login_user(user)
+                return True
+            else:
+                return False
