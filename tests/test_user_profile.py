@@ -29,6 +29,7 @@ class TestUserRevise(unittest.TestCase):
         u = User(display_name='Kevin')
         u.like(e)
         self.assertTrue(u.unlike(444))
+        self.assertFalse(u.liked(444))
 
     def test_liked_events(self):
         e = Event(
@@ -85,5 +86,6 @@ class TestUserRevise(unittest.TestCase):
 
         u.attending(e)
         self.assertEqual(len(u.attending_events),1)
-        u.unattending(e)
-        self.assertTrue(len(u.attending_events),0)
+        u.attended(e)
+        self.assertEqual(len(u.attending_events),0)
+        self.assertEqual(len(u.attended_events), 1)
