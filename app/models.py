@@ -31,6 +31,18 @@ user_liked_event = db.Table(
     db.Column("event_id", db.Integer, db.ForeignKey("event.id")),
 )
 
+user_attending_event = db.Table(
+    "user_attending_event",
+    db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
+    db.Column("event_id", db.Integer, db.ForeignKey("event.id")),
+)
+
+user_attended_event = db.Table(
+    "user_attended_event",
+    db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
+    db.Column("event_id", db.Integer, db.ForeignKey("event.id")),
+)
+
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -43,8 +55,12 @@ class Event(db.Model):
     liked_users = db.relationship(
         "User", secondary=user_liked_event, back_populates="liked_events"
     )
-    attending = db.Column(db.Integer)
-    attended = db.Column(db.Integer)
+    attending_users = db.relationship(
+        "User", secondary=user_attending_event, back_populates="attending_events"
+    )
+    attending_users = db.relationship(
+        "User", secondary=user_attended_event, back_populates="attended_events"
+    )
 
     def __init__(self, name, description, location, image_url, date_time):
         self.name = name
@@ -102,6 +118,12 @@ class User(db.Model):
     liked_events = db.relationship(
         "Event", secondary=user_liked_event, back_populates="liked_users"
     )
+    attending_events = db.relationship(
+        "Event", secondary=user_attending_event, back_populates="attending_users"
+    )
+    attended_events = db.relationship(
+        "Event", secondary=user_attended_event, back_populates="attended_users"
+    )
 
     def __init__(self, display_name="", email="", password=""):
         self.display_name = display_name
@@ -144,6 +166,34 @@ class User(db.Model):
         for event in self.liked_events:
             if event.id == event_id:
                 self.liked_events.remove(event)
+                return True
+        else:
+            return False
+
+    def liked(self, event_id):
+        for event in self.liked_events:
+            if event.id == event_id:
+                return True
+        else:
+            return False
+
+    def attending(self, event):
+        self.attending_events.append(event)
+
+    def unattending(self, event_id):
+        for event in self.attending_events:
+            if event.id == event_id:
+                self.attending_events.remove(event)
+                return True
+        else:
+            return False
+
+    def attended(self, event):
+        if self.unattending(event.id):
+            self.attended_events.append(event)
+            return True
+        else:
+            return False
 
 
 class OAuth(OAuthConsumerMixin, db.Model):
