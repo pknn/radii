@@ -1,32 +1,77 @@
 import unittest
 import datetime
-from app.models import Event
+from app.models import Event, User
 
+class TestUserRevise(unittest.TestCase):
 
-class TestUserProfile(unittest.TestCase):
+    def test_liked(self):
+        e = Event(
+            "test",
+            "description",
+            "location",
+            "url",
+            date_time=datetime.datetime.utcnow()
+        )
+        e.id = 123
+        u = User(display_name='Poom')
+        u.like(e)
+        self.assertTrue(u.liked(123))
+
+    def test_unlike(self):
+        e = Event(
+            "test",
+            "description",
+            "location",
+            "url",
+            date_time=datetime.datetime.utcnow()
+        )
+        e.id = 444
+        u = User(display_name='Kevin')
+        u.like(e)
+        self.assertTrue(u.unlike(444))
+        self.assertFalse(u.liked(444))
+
+    def test_liked_events(self):
+        e = Event(
+            "test",
+            "description",
+            "location",
+            "url",
+            date_time=datetime.datetime.utcnow()
+        )
+        e.id = 678
+        u = User(display_name='Zak')
+
+        u.like(e)
+        self.assertTrue(len(u.liked_events),1)
+        u.unlike(e)
+        self.assertTrue(len(u.liked_events),0)
+
     def test_attending(self):
         e = Event(
             "test",
             "description",
             "location",
             "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
+            date_time=datetime.datetime.utcnow()
         )
-        e.attending = 4
-        print(e.attending_count())
-        self.assertEqual(e.attending_count(), 4)
+        e.id = 888
+        u = User(display_name='Phil')
+        u.attending(e)
+        self.assertTrue(u.attended(e))
 
-    def test_attending_is_integer(self):
+    def test_unattending(self):
         e = Event(
             "test",
             "description",
             "location",
             "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
+            date_time=datetime.datetime.utcnow()
         )
-        e.attending = 14
-        print(e.attending_count())
-        self.assertEqual(e.attending_count() + 3, 17)
+        e.id = 145
+        u = User(display_name='Dave')
+        u.attending(e)
+        self.assertTrue(u.unattending(145))
 
     def test_attended(self):
         e = Event(
@@ -34,44 +79,13 @@ class TestUserProfile(unittest.TestCase):
             "description",
             "location",
             "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
+            date_time=datetime.datetime.utcnow()
         )
-        e.attended = 4
-        print(e.attended_count())
-        self.assertEqual(e.attended_count(), 4)
+        e.id = 555
+        u = User(display_name='Jay')
 
-    def test_attended_is_integer(self):
-        e = Event(
-            "test",
-            "description",
-            "location",
-            "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
-        )
-        e.attended = 3
-        print(e.attended_count())
-        self.assertEqual(e.attended_count() + 5, 8)
-
-    def test_invalid_attending_event(self):
-        e = Event(
-            "test",
-            "description",
-            "location",
-            "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
-        )
-        e.attending = -4
-        print(e.attending_count())
-        self.assertEqual(e.attending_count(), 0)
-
-    def test_invalid_attended_event(self):
-        e = Event(
-            "test",
-            "description",
-            "location",
-            "url",
-            date_time=datetime.datetime(2019, 12, 1, 10, 30, 11),
-        )
-        e.attended = -6
-        print(e.attended_count())
-        self.assertEqual(e.attended_count(), 0)
+        u.attending(e)
+        self.assertEqual(len(u.attending_events),1)
+        u.attended(e)
+        self.assertEqual(len(u.attending_events),0)
+        self.assertEqual(len(u.attended_events), 1)

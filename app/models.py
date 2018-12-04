@@ -52,6 +52,7 @@ class Event(db.Model):
     image_url = db.Column(db.String(400), index=True)
     date_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     category_id = db.Column(db.Integer, db.ForeignKey(Category.id))
+
     liked_users = db.relationship(
         "User", secondary=user_liked_event, back_populates="liked_events"
     )
