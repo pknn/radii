@@ -16,3 +16,6 @@ migrations/
 
 # Request File
 request.http
+
+# CSS Mapping
+*.css.map
