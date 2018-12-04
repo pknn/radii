@@ -13,7 +13,6 @@ $('document').ready(function () {
     })
 });
 let numberOfEvent = $('.grid .services').length;
-console.log(numberOfEvent)
 let limitEvent = 9;
 $(".grid .services:gt(" + (limitEvent-1) + ")").hide();
 let totalPages = Math.round(numberOfEvent/limitEvent);
