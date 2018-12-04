@@ -58,7 +58,7 @@ class Event(db.Model):
     attending_users = db.relationship(
         "User", secondary=user_attending_event, back_populates="attending_events"
     )
-    attending_users = db.relationship(
+    attended_users = db.relationship(
         "User", secondary=user_attended_event, back_populates="attended_events"
     )
 
