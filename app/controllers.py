@@ -5,8 +5,7 @@ from flask_login import login_user, logout_user, current_user
 
 class UserController:
     @staticmethod
-    def create_user(display_name, email):
-        user = User(display_name, email)
+    def create_user(user):
         db.session.add(user)
         db.session.commit()
         return user
@@ -132,7 +131,8 @@ class AuthController:
     def oauth(display_name, email):
         user = User.query.filter_by(display_name=display_name).first()
         if user is None:
-            user = UserController.create_user(display_name, email)
+            new_user = User(display_name, email)
+            user = UserController.create_user(new_user)
         login_user(user)
         EventController.check_attended()
         return user
