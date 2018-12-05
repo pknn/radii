@@ -9,14 +9,14 @@
 <a href="{{ url_for('like', event_id=event.event_id) }}">
   <button class="button button-style button-like">
     <i class="fas fa-thumbs-up"></i>
-    <span>Like</span>
+    <span>{{ len(liked_users) }}</span>
   </button>
 </a>
 {% elif %}
 <a href="{{ url_for('like', event_id=event.event_id) }}">
   <button class="button button-style liked">
     <i class="fas fa-thumbs-up"></i>
-    <span>Like</span>
+    <span>{{ len(liked_users) }}</span>
   </button>
 </a>
 {% endif %}
@@ -25,7 +25,7 @@
 <a href="{{ url_for('attend', event_id=event.event_id) }}">
   <button class="button button-style button-attend">
     <i class="fas fa-plus-circle"></i>
-    <span>{{ len(liked_users) }}</span>
+    <span>{{ len(attended_users) }}</span>
   </button>
 </a>
 {% elif %}

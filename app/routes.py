@@ -81,8 +81,6 @@ def login():
 @app.route('/like/<event_id>')
 def like(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
-    if event is None:
-        return None
     if current_user.is_authenticated:
         if current_user.liked(event):
             return redirect(url_for("event", event_id=event_id))
@@ -92,8 +90,6 @@ def like(event_id):
 
 @app.route('/unlike/<event_id>')
 def unlike(event_id):
-    if event is None:
-        return None
     if current_user.is_authenticated:
         current_user.unlike(event_id)
         db.session.commit()    
@@ -102,8 +98,6 @@ def unlike(event_id):
 @app.route('/attend/<event_id>')
 def attend(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
-    if event is None:
-        return None
     if current_user.is_authenticated:
         if current_user.attended(event):
             return redirect(url_for("event", event_id=event_id))
@@ -114,8 +108,6 @@ def attend(event_id):
 @app.route('/unattend/<event_id>')
 def unattend(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
-    if event is None:
-        return None
     if current_user.is_authenticated:
         current_user.unattending(event)
         db.session.commit()    
