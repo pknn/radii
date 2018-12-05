@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            pip install pytest pytest-cov
+            sudo pip install pytest pytest-cov
             pytest --cov=./
 
   build:
