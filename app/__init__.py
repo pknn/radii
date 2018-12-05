@@ -17,6 +17,7 @@ migrate = Migrate(app, db)
 github_blueprint = make_github_blueprint(
     client_id="674925257692ed46a38b",
     client_secret="319fb87ac542c68085927440429a968f0bf55dbf",
+    redirect_url="https://radii.devinpeace.com/login/github/authorized",
 )
 
 app.register_blueprint(github_blueprint, url_prefix="/login")
