@@ -69,7 +69,7 @@ workflows:
             - test
           filters:
             branches:
-              ignore: /feature\/.*/
+              ignore: /feature\/.*|hotfix\/.*/
       - deploy:
           requires:
             - build
