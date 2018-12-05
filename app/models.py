@@ -151,9 +151,6 @@ class User(db.Model):
     def get_id(self):
         return self.id
 
-    def is_anonymous(self):
-        return False
-
     def is_authenticated(self):
         return True
 
