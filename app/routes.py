@@ -121,6 +121,7 @@ def unattend(event_id):
         db.session.commit()
         return redirect(url_for("event", event_id=event_id))
 
+
 @app.route("/explore")
 def explore():
     if request.method == "POST":
