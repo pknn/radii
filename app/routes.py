@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, jsonify
 from flask_dance.contrib.github import github
 from flask_login import current_user, login_required
 from app import app, auth
-from app.controllers import EventController, AuthController
+from app.controllers import EventController, AuthController, CategoryController
 from app.models import Event
 import sys
 from datetime import datetime, timedelta
@@ -16,7 +16,8 @@ def index():
 @app.route("/event")
 def event():
     events = EventController.get_all_event()
-    return render_template("event.html", title="Event", events=events)
+    categories = CategoryController.get_all_category()
+    return render_template("event.html", title="Event", events=events, categories=categories)
 
 
 @app.route("/browse_name", methods=["POST"])
@@ -26,13 +27,12 @@ def browse_name():
         events = EventController.search_by_name(query)
         return render_template("event.html", title="Event Search Result", events=events)
 
-
-@app.route("/browse_category", methods=["POST"])
-def browse_category():
-    if request.method == "POST":
-        query = request.form["query"]
-        events = EventController.search_by_category(query)
-        return render_template("event.html", title=query, events=events)
+@app.route("/browse_category/<category_id>")
+def browse_category(category_id):
+    events = EventController.search_by_category_id(category_id)
+    topic = CategoryController.get_name(category_id)
+    categories = CategoryController.get_all_category()
+    return render_template("event.html",topic=topic , events=events, categories=categories)
 
 
 @app.route("/event_dump", methods=["POST"])
@@ -44,7 +44,6 @@ def event_dump():
 @app.route("/event/<event_id>")
 def event_description(event_id):
     event_info = Event.query.get(event_id)
-
     return render_template("event_description.html", event_info=event_info)
 
 
