@@ -24,24 +24,24 @@
 
   {% endif %}
 
-
-  {% if not current_user.unattending(event_info.event_id) %}
-  <a href="{{ url_for('attend', event_id=event_info.event_id) }}">
-    <button class="button button-style button-attend">
-      <i class="fas fa-plus-circle"></i>
-      <span>{{ event_info.attended_users | length }}</span>
-    </button>
-  </a>
-  {% else %}
-  <a href="{{ url_for('attend', event_id=event_info.event_id) }}">
-    <button class="button button-style attended">
-      <i class="fas fa-plus-circle"></i>
-      <span>{{ event_info.attended_users | length }}</span>
-    </button>
-  </a>
+{% if not current_user.unattending(event_info.event_id) %}
+<a href="{{ url_for('attend', event_id=event_info.event_id) }}">
+  <button class="button button-style button-attend">
+    <i class="fas fa-plus-circle"></i>
+    <span>{{ event_info.attended_users | length }}</span>
+  </button>
+</a>
+{% else %}
+<a href="{{ url_for('attend', event_id=event_info.event_id) }}">
+  <button class="button button-style attended">
+    <i class="fas fa-plus-circle"></i>
+    <span>{{ event_info.attended_users | length }}</span>
+  </button>
+</a>
   {% endif %}
 {% endif %}
 
+{%endif %}
 
 <div class="container event-descript">
   
