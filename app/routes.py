@@ -41,10 +41,9 @@ def event_dump():
     return jsonify(EventController.dump_event(dump))
 
 
-@app.route("/event/<event_id>")
+@app.route("/event/<int:event_id>")
 def event_description(event_id):
     event_info = Event.query.get(event_id)
-
     return render_template("event_description.html", event_info=event_info)
 
 
