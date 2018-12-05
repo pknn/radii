@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request, jsonify
 from flask_dance.contrib.github import github
-from flask_login import current_user
+from flask_login import current_user, login_required
 from app import app, auth
 from app.controllers import EventController, AuthController
 from app.models import Event
@@ -68,6 +68,13 @@ def login():
     else:
         AuthController.login(email, password)
         return redirect(url_for("index"))
+
+
+@app.route("/logout", methods=["POST"])
+@login_required
+def logout():
+    AuthController.logout()
+    return redirect(url_for("index"))
 
 
 @app.route("/like/<event_id>")
