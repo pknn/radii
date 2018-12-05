@@ -5,6 +5,9 @@
 .pytest_cache
 *.pyc
 
+# Virtual Environment
+venv/
+
 # Generate output
 .DS_Store
 
@@ -13,3 +16,6 @@ migrations/
 
 # Request File
 request.http
+
+# CSS Mapping
+*.css.map

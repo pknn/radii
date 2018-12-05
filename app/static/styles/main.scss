@@ -4,6 +4,7 @@
 @import 'cover';
 @import 'event';
 @import 'login';
+@import 'event_description';
 
 html,
 body {
@@ -15,8 +16,13 @@ body {
     
 }
 
+a:hover { 
+    text-decoration: none;
+}
+
 .container-fluid {
     padding: 0px;
+    height: 100%;
 }
 
 .pre-box {

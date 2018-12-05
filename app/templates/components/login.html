@@ -11,7 +11,7 @@
                 </button>
               </div>
               <div class="title">Login</div>
-              <form id="login-form" methods="post" action="" novalidate="novalidate">
+              <form id="login-form" methods="post" action="/login" novalidate="novalidate">
                 <div class="form-group">
                   <label for="email" class="control-label">
                     Email
@@ -36,11 +36,11 @@
                     <a href="#">Forgot password</a>
                   </p>
                   <div class="row icon-login d-md-none">
-                      <div class="circle facebook"><i class="fab fa-facebook-f"></i></div>                
-                      <div class="circle github"><i class="fab fa-github"></i></div>
+                      <a class="circle facebook"><i class="fab fa-facebook-f"></i></a>                
+                      <a class="circle github" href="/login_github"><i class="fab fa-github"></i></a>
                   </div>
                   <div class="login-button">
-                    <button type="button" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                   </div>
                   <div class="create-account">
                     Doesn’t have an account yet?
@@ -62,8 +62,8 @@
                 Connect via
               </div>
               <div class="row">
-                <div class="circle facebook"><i class="fab fa-facebook-f"></i></div>                
-                <div class="circle github"><i class="fab fa-github"></i></div>
+                <a class="circle facebook"><i class="fab fa-facebook-f"></i></a>                
+                <a class="circle github" href="/login_github"><i class="fab fa-github"></i></a>
               </div>
             </div>
           </div>

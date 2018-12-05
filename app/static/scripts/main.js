@@ -12,41 +12,45 @@ $('document').ready(function () {
         }
     })
 });
-let numberOfEvent = $('.grid .services').length;
+let numberOfEvent = $('.grid a').length;
+console.log(numberOfEvent)
 let limitEvent = 9;
-$(".grid .services:gt(" + (limitEvent-1) + ")").hide();
-let totalPages = Math.round(numberOfEvent/limitEvent);
+$(".grid a:gt(" + (limitEvent - 1) + ")").hide();
+let totalPages = Math.round(numberOfEvent / limitEvent);
+if ((numberOfEvent / limitEvent) > Math.round(numberOfEvent / limitEvent)) {
+    totalPages = Math.round(numberOfEvent / limitEvent + 1);
+}
 console.log(totalPages)
 let currentPage = $(".pagination p").text();
 console.log(currentPage)
 
-$(".pagination li.next").on("click", function() {    
-    if(currentPage == totalPages || totalPages == 0){                
-        return false;        
-    } else {        
+$(".pagination li.next").on("click", function () {
+    if (currentPage == totalPages || totalPages == 0) {
+        return false;
+    } else {
         currentPage++;
         $('.pagination li').removeClass("active")
-        $('.grid .services').hide();
+        $('.grid a').hide();
         change_page();
     }
 })
 
-$(".pagination li.previous").on("click", function() {
-    if(currentPage == 1){
+$(".pagination li.previous").on("click", function () {
+    if (currentPage == 1) {
         return false;
     } else {
         currentPage--;
         $('.pagination li').removeClass("active")
-        $('.grid .services').hide();
+        $('.grid a').hide();
         change_page();
     }
 })
 
-function change_page(){
-    let grandTotal = limitEvent * currentPage        
-    for (let i=grandTotal-limitEvent; i<grandTotal; i++){
-        $(".grid .services:eq(" + (i) + ")").show();
-    }        
+function change_page() {
+    let grandTotal = limitEvent * currentPage
+    for (let i = grandTotal - limitEvent; i < grandTotal; i++) {
+        $(".grid a:eq(" + (i) + ")").show();
+    }
     $(".pagination li.page-current").addClass("active");
     $(".pagination p").text(currentPage);
 }

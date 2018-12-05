@@ -3,7 +3,6 @@
   background-position: bottom;
   background-attachment: fixed;
   background-size: cover;
-  height: 100%;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.16);
 }
 
@@ -13,6 +12,9 @@
   grid-auto-rows: 1fr;
   grid-gap: 90px;
   margin-top: 100px;
+  a {
+    color: #2E3F5A;
+  }
 }
 
 .services{
@@ -85,8 +87,8 @@
   height: 200px;
   bottom: 0;
   width: 100%;
-  margin-top: 90px;
   text-align: center;
+  margin-top: 90px;
   p {
     color: #fff;
     font-size: 30px;
