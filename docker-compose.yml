@@ -5,7 +5,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=radii_app
+      POSTGRES_DB: radii_app
 
   app:
     image: devinpeace/radii-app:latest
