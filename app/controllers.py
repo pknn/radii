@@ -65,11 +65,24 @@ class EventController:
         events = Event.query.filter(Event.category_id == category.id)
         return events
 
+    @staticmethod
+    def search_by_category_id(category_id):
+        category = Category.query.get(category_id)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
+class CategoryController:
+    @staticmethod
+    def get_all_category():
+        return Category.query.all()
+    
+    @staticmethod
+    def get_name(category_id):
+        return Category.query.get(category_id).name
 
 class AuthController:
     @staticmethod
