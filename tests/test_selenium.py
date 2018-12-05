@@ -22,15 +22,11 @@ class TestSelenium(unittest.TestCase):
     search_button = browser.find_element_by_id('search-button')
     search_button.click()
     browser.close()
-
-  def test_login(self):
-    browser = self.browser
-    browser.get('https://radii.devinpeace.com')
-    email = browser.find_element_by_name('email')
-    password = browser.find_element_by_name('password')
-    login_button = browser.find_element_by_xpath("//button[@type='submit']")
-    login_button.click()
-    browser.close()
   
+  def test_display_event(self):
+    browser = self.browser
+    browser.get('https://radii.devinpeace.com/event')
+    tag_name = browser.find_elements_by_class_name('services')
+    self.assertEqual(77, len(tag_name))
   
 
