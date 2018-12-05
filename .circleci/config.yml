@@ -25,6 +25,8 @@ jobs:
           command: |
             sudo pip install pytest pytest-cov
             pytest --cov=./
+            sudo pip install codecov
+            codecov
 
   build:
     docker:
