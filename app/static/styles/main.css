@@ -426,6 +426,91 @@ label {
   margin-bottom: 60px;
 }
 
+.button-style {
+  background-color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem;
+  position: fixed;
+  vertical-align: middle;
+  text-align: left;
+  display: inline-block;
+  color: #808080;
+  transition: all ease 0.1s;
+  right: 0;
+  width: 100px;
+}
+
+.button-attend {
+  top: 178px;
+  border: 1px solid #ff5700;
+}
+.button-attend span {
+  margin-left: 0.5rem;
+}
+.button-attend .fa,
+.button-attend span {
+  transition: all ease 0.1s;
+}
+.button-attend:focus {
+  background-color: #ffffff;
+  color: #808080;
+}
+.button-attend:hover {
+  border-color: #ff5700;
+  background-color: #ffffff;
+  color: #ff5700;
+}
+
+.attended {
+  background-color: #ff5700;
+  border-color: #ff5700;
+  color: #ffffff;
+}
+.attended:focus {
+  background-color: #ff5700;
+  color: #ffffff;
+}
+.attended:hover {
+  background-color: #ff5700;
+  border-color: #ff5700;
+  color: #ffffff;
+}
+
+.button-like {
+  border: 1px solid #3B5998;
+}
+.button-like span {
+  margin-left: 0.5rem;
+}
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.1s;
+}
+.button-like:focus {
+  background-color: #ffffff;
+  color: #808080;
+}
+.button-like:hover {
+  border-color: #3B5998;
+  background-color: #ffffff;
+  color: #3B5998;
+}
+
+.liked {
+  background-color: #3B5998;
+  border-color: #3B5998;
+  color: #ffffff;
+}
+.liked:focus {
+  background-color: #3B5998;
+  color: #ffffff;
+}
+.liked:hover {
+  background-color: #3B5998;
+  border-color: #3B5998;
+  color: #ffffff;
+}
+
 .blog-img-container {
   margin-bottom: -50px;
   z-index: -1;

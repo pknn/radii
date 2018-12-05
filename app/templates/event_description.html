@@ -4,6 +4,40 @@
 
 <div id="event">
 {% include "components/navbar.html" %}
+
+{% if not current_user.liked(event_info.event_id) %}
+<a href="{{ url_for('like', event_id=event.event_id) }}">
+  <button class="button button-style button-like">
+    <i class="fas fa-thumbs-up"></i>
+    <span>Like</span>
+  </button>
+</a>
+{% elif %}
+<a href="{{ url_for('like', event_id=event.event_id) }}">
+  <button class="button button-style liked">
+    <i class="fas fa-thumbs-up"></i>
+    <span>Like</span>
+  </button>
+</a>
+{% endif %}
+
+{% if not current_user.unattending(event_info.event_id) %}
+<a href="{{ url_for('attend', event_id=event.event_id) }}">
+  <button class="button button-style button-attend">
+    <i class="fas fa-plus-circle"></i>
+    <span>{{ len(liked_users) }}</span>
+  </button>
+</a>
+{% elif %}
+<a href="{{ url_for('attend', event_id=event.event_id) }}">
+  <button class="button button-style attended">
+    <i class="fas fa-plus-circle"></i>
+    <span>{{ len(attended_users) }}</span>
+  </button>
+</a>
+{% endif %}
+
+
 <div class="container event-descript">
   
   <div class="blog-img-container"><img src="{{ event_info.image_url }}" alt="" class="img-header"></div>
@@ -33,12 +67,9 @@
     </div>
   </div>
   
-  
-
 </div>
   
 {% include "components/footer.html" %}
 </div>
-
 
 {% endblock wrapper %}

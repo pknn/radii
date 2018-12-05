@@ -53,3 +53,14 @@ function change_page(){
     $(".pagination li.page-current").addClass("active");
     $(".pagination p").text(currentPage);
 }
+
+$('.button-like')
+.bind('click', function(event) {
+  $(".button-like").toggleClass("liked");
+})
+
+$('.button-attend')
+.bind('click', function(event) {
+  $(".button-attend").toggleClass("attended");
+})
+  
