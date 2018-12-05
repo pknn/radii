@@ -1,6 +1,7 @@
 from app import db, login_manager
 from app.models import User, Event, Category
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
+import sys
 
 
 class UserController:
@@ -66,23 +67,53 @@ class EventController:
         return events
 
     @staticmethod
-    def search_by_category_id(category_id):
-        category = Category.query.get(category_id)
-        events = Event.query.filter(Event.category_id == category.id)
-        return events
+    def like(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.like(event)
+            db.session.commit()
+
+    @staticmethod
+    def unlike(event_id):
+        if current_user.is_authenticated():
+            current_user.unlike(event_id)
+            db.session.commit()
+
+    @staticmethod
+    def attending(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.attending(event)
+            db.session.commit()
+
+    @staticmethod
+    def unattending(event_id):
+        if current_user.is_authenticated():
+            current_user.unattending(event_id)
+            db.session.commit()
+
+    @staticmethod
+    def attended(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.attended(event)
+            db.session.commit()
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
+
 class CategoryController:
     @staticmethod
     def get_all_category():
         return Category.query.all()
-    
+
     @staticmethod
     def get_name(category_id):
         return Category.query.get(category_id).name
+
 
 class AuthController:
     @staticmethod
@@ -114,3 +145,4 @@ class AuthController:
     @staticmethod
     def logout():
         logout_user()
+
