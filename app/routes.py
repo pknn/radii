@@ -60,13 +60,7 @@ def event_description(event_id):
 
 @app.route("/login_github")
 def login_github():
-    if not github.authorized:
-        return redirect(url_for("github.login"))
-    else:
-        user_response = github.get("/user")
-        user_json = user_response.json()
-        AuthController.oauth(user_json["login"], user_json["email"])
-        return redirect(url_for("index"))
+    return redirect(url_for('error', code=302))
 
 
 @app.route("/register", methods=["POST"])
@@ -94,8 +88,10 @@ def error(code):
     error_message = ""
     if code == 400:
         error_message = "User already exists"
-    else:
+    elif code == 401:
         error_message = "Invalid Login Credential"
+    else:
+        error_message = "Temporary Unavailable"
     return render_template('error.html', error_message=error_message)
 
 
