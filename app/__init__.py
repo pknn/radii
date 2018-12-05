@@ -5,9 +5,11 @@ from flask_migrate import Migrate
 from flask_dance.consumer.backend.sqla import SQLAlchemyBackend
 from flask_dance.contrib.github import make_github_blueprint
 from flask_login import LoginManager
+from werkzeug.contrib.fixers import ProxyFix
 
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 app.config.from_object(Config)
 
 db = SQLAlchemy(app)
