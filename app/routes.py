@@ -2,7 +2,12 @@ from flask import render_template, redirect, url_for, request, jsonify
 from flask_dance.contrib.github import github
 from flask_login import current_user, login_required
 from app import app, auth
-from app.controllers import EventController, AuthController, CategoryController
+from app.controllers import (
+    EventController,
+    AuthController,
+    CategoryController,
+    ExploreController,
+)
 from app.models import Event
 import sys
 from datetime import datetime, timedelta
@@ -121,16 +126,6 @@ def unattend(event_id):
 
 @app.route("/explore")
 def explore():
-    if request.method == "POST":
-        name, description, location, image_url, date_time, category_name = (
-            request.json.values()
-        )
-        return jsonify(
-            EventController.create_event(
-                name, description, location, image_url, date_time, category_name
-            ).jsonify()
-        )
-    else:
-        events = EventController.get_all_event()
-        return render_template("explore.html", title="Explore", events=events)
+    events = ExploreController.explore()
+    return render_template("explore.html", title="Explore", events=events)
 

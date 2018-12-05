@@ -1,13 +1,15 @@
+import pandas
+from flask_login import login_user, logout_user, current_user
+
 from app import db, login_manager
 from app.models import User, Event, Category
-from flask_login import login_user, logout_user, current_user
-import sys
+
+import random
 
 
 class UserController:
     @staticmethod
-    def create_user(display_name, email):
-        user = User(display_name, email)
+    def create_user(user):
         db.session.add(user)
         db.session.commit()
         return user
@@ -155,3 +157,34 @@ class AuthController:
     def logout():
         logout_user()
 
+
+def read_events(likes):
+    suggest = pandas.read_csv("./similar-event.csv", names=["event", "other", "points"])
+    return suggest.loc[
+        suggest["event"].isin(likes) & suggest["points"]
+        > 0 & ~suggest["other"].isin(likes)
+    ]
+
+
+def sort_events(events):
+    sorted = events.sort_values(by=["points"])["other"].unique().tolist()
+    half = int(len(sorted) / 2)
+    return sorted[half:]
+
+
+class ExploreController:
+    @staticmethod
+    def explore():
+        if current_user.is_authenticated():
+            likes = [e.name for e in current_user.liked_events]
+            event_df = read_events(likes)
+            explore_name = sort_events(event_df)
+            explore = [
+                Event.query.filter_by(name=name).first() for name in explore_name
+            ]
+            explore = list(filter(lambda x: x is not None, explore))
+            return explore[:5] + random.sample(explore[5:], 4)
+        else:
+            all_events = Event.query.all()
+            explore = sorted(all_events, key=lambda e: len(e.liked_users), reverse=True)
+            return explore
