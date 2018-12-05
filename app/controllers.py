@@ -1,7 +1,7 @@
 from app import db, login_manager
 from app.models import User, Event, Category
 from flask_login import login_user, logout_user, current_user
-
+import sys
 
 class UserController:
     @staticmethod
@@ -139,9 +139,13 @@ class AuthController:
 
     @staticmethod
     def register(display_name, email, password):
-        new_user = User(display_name=display_name, email=email, password=password)
-        UserController.create_user(new_user)
-        return new_user
+        user = User.query.filter_by(email=email).first()
+        if user is None:
+            new_user = User(display_name=display_name, email=email, password=password)
+            UserController.create_user(new_user)
+            return True
+        else:
+            return False
 
     @staticmethod
     def login(email, password):
@@ -154,6 +158,7 @@ class AuthController:
                 EventController.check_attended()
                 return True
             else:
+                print("PASSWORD", file=sys.stdout)
                 return False
 
     @staticmethod
