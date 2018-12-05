@@ -1,7 +1,6 @@
 from app import db, login_manager
 from app.models import User, Event, Category
 from flask_login import login_user, logout_user, current_user
-import sys
 
 
 class UserController:
@@ -154,4 +153,3 @@ class AuthController:
     @staticmethod
     def logout():
         logout_user()
-
