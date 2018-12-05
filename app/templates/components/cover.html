@@ -3,10 +3,10 @@
     <div class="py-5" id="cover">
         <h1 class="text-white">Find a brand new radius, for you.</h1>
         <div class="pre-box" id="search-box">
-            <form class="p-3">
+            <form class="p-3" method="post" action="/browse_name">
                 <div class="row">
                     <div class="col-md">
-                        <input type="text" placeholder="Your location, event name or where to search" id="search-input">
+                        <input type="text" name="query" placeholder="Your location, event name or where to search" id="search-input">
                     </div>
                     <div class="col-md-4">
                         <button id="search-button" class="btn btn-primary" type="submit">Find Events</button>

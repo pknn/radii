@@ -9,16 +9,28 @@
 }
 
 .log-button {
-  background: #2E3F5A;
+  background: #8a3d43;
   color: white;
   border-radius: 40px;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.16);
   cursor: pointer;
+  padding: 10px;
+  border: 0;
+  text-align: left;
+}
+.log-button .fas {
+  margin-right: 6px;
+  margin-left: 7px;
 }
 
 @media (min-width: 768px) {
   #main-navigation {
     padding: 0 8rem;
+  }
+}
+@media (max-width: 991px) {
+  .nav-link {
+    width: 100%;
   }
 }
 header {
@@ -80,6 +92,9 @@ header {
   grid-gap: 90px;
   margin-top: 100px;
 }
+.grid a {
+  color: #2E3F5A;
+}
 
 .services {
   padding: 25px;
@@ -106,6 +121,7 @@ header {
   margin-bottom: 7px;
 }
 .services span img {
+  height: 180px;
   width: 100%;
   margin: 0 auto;
   margin-top: -45px;
@@ -152,6 +168,7 @@ header {
   bottom: 0;
   width: 100%;
   text-align: center;
+  margin-top: 90px;
 }
 #footer p {
   color: #fff;
@@ -399,8 +416,8 @@ label {
   justify-content: center;
 }
 #right-side-modal .circle {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 0.3px solid #707070;
   margin: 10px;
@@ -415,19 +432,11 @@ label {
 }
 #right-side-modal .fa-github {
   color: white;
-  font-size: 50px;
-}
-
-.facebook {
-  background: #3B5998;
+  font-size: 130px;
 }
 
 .github {
   background: black;
-}
-
-.fa-facebook-f {
-  color: white;
 }
 
 .event-descript {
@@ -451,11 +460,17 @@ label {
 .button-attend {
   top: 178px;
   border: 1px solid #ff5700;
+  display: inline-flex;
+}
+@media screen and (max-width: 190px) {
+  .button-attend {
+    display: none;
+  }
 }
 .button-attend span {
   margin-left: 0.5rem;
 }
-.button-attend .fa,
+.button-attend .fas,
 .button-attend span {
   transition: all ease 0.1s;
 }
@@ -470,9 +485,19 @@ label {
 }
 
 .attended {
+  top: 178px;
   background-color: #ff5700;
   border-color: #ff5700;
   color: #ffffff;
+  display: inline-flex;
+}
+@media screen and (max-width: 190px) {
+  .attended {
+    display: none;
+  }
+}
+.attended span {
+  margin-left: 0.5rem;
 }
 .attended:focus {
   background-color: #ff5700;
@@ -486,11 +511,17 @@ label {
 
 .button-like {
   border: 1px solid #3B5998;
+  display: inline-flex;
+}
+@media screen and (max-width: 190px) {
+  .button-like {
+    display: none;
+  }
 }
 .button-like span {
   margin-left: 0.5rem;
 }
-.button-like .fa,
+.button-like .fas,
 .button-like span {
   transition: all ease 0.1s;
 }
@@ -508,6 +539,15 @@ label {
   background-color: #3B5998;
   border-color: #3B5998;
   color: #ffffff;
+  display: inline-flex;
+}
+@media screen and (max-width: 190px) {
+  .liked {
+    display: none;
+  }
+}
+.liked span {
+  margin-left: 0.5rem;
 }
 .liked:focus {
   background-color: #3B5998;

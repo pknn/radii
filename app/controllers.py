@@ -1,6 +1,6 @@
 from app import db, login_manager
 from app.models import User, Event, Category
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 
 
 class UserController:
@@ -54,10 +54,77 @@ class EventController:
         events = Event.query.all()
         return events
 
+    @staticmethod
+    def search_by_name(query):
+        events = Event.query.filter(Event.name.match(query))
+        return events
+
+    @staticmethod
+    def search_by_category(query):
+        category = Category.query.get(query)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
+
+    @staticmethod
+    def search_by_category_id(category_id):
+        category = Category.query.get(category_id)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
+
+    @staticmethod
+    def like(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.like(event)
+            db.session.commit()
+
+    @staticmethod
+    def unlike(event_id):
+        if current_user.is_authenticated():
+            current_user.unlike(event_id)
+            db.session.commit()
+
+    @staticmethod
+    def attending(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.attending(event)
+            db.session.commit()
+
+    @staticmethod
+    def unattending(event_id):
+        if current_user.is_authenticated():
+            current_user.unattending(event_id)
+            db.session.commit()
+
+    @staticmethod
+    def attended(event_id):
+        event = Event.query.get(event_id)
+        if current_user.is_authenticated():
+            current_user.attended(event)
+            db.session.commit()
+
+    @staticmethod
+    def check_attended():
+        if current_user.is_authenticated():
+            for event in current_user.attending_events:
+                if event.is_event_passed():
+                    current_user.attended(event)
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+
+class CategoryController:
+    @staticmethod
+    def get_all_category():
+        return Category.query.all()
+
+    @staticmethod
+    def get_name(category_id):
+        return Category.query.get(category_id).name
 
 
 class AuthController:
@@ -67,6 +134,7 @@ class AuthController:
         if user is None:
             user = UserController.create_user(display_name, email)
         login_user(user)
+        EventController.check_attended()
         return user
 
     @staticmethod
@@ -83,6 +151,7 @@ class AuthController:
         else:
             if user.check_password(password):
                 login_user(user)
+                EventController.check_attended()
                 return True
             else:
                 return False

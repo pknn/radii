@@ -19,7 +19,7 @@
                 <a class="nav-link" href="{{url_for('event')}}">Browse</a>
             </li>
             <li class="px-3 nav-item">
-                <a class="nav-link" href="#">Explore</a>
+                <a class="nav-link" href="{{url_for('explore')}}">Explore</a>
             </li>
             {% if current_user.is_anonymous %}
             <li class="px-3 nav-item" id="login-button" data-toggle="modal" data-target="#modalLogin">
@@ -28,7 +28,9 @@
             {% else %}
             <li class="px-3 nav-item" class="log-button">
                 <form method="post" action="/logout">
-                    <button class="nav-link log-button" type="submit">Logout</button>
+                    <button class="nav-link log-button" type="submit">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </button>
                 </form>
             </li>
             {% endif %}

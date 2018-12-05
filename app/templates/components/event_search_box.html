@@ -1,24 +1,30 @@
 <div class="container" id="event-container">
+  {% if topic %}
+  <p>{{ topic | capitalize }} .</p>
+  {% else %}
   <p>Event .</p>
+  {% endif %}
+  
   <div class="location-container shadow-lg">
     <div class="row">
       <div class="col-6">
-        <div class="input-field first-wrap">
-          <input id="search" type="text" placeholder="Your location, event name or where to search" />
-        </div>
+        <form action="/browse_name" method="post">
+          <div class="input-field first-wrap">
+            <input id="search" type="text" name='query' placeholder="Your location, event name or where to search" />
+          </div>
+        </form>
       </div>
       <div class="col-6">
         <div class="dropdown">
             <button class="box dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                {{current_category | capitalize}}
+            </button>            
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">   
+              {% for category in categories %}                  
+                <a class="dropdown-item" href="{{ url_for('browse_category', category_id=category.id) }}">{{ category.name | capitalize }}</a>
+              {% endfor %}
             </div>
         </div>
-        
       </div>
     </div>
   </div>

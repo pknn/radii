@@ -158,11 +158,12 @@ class User(db.Model):
         return True
 
     def like(self, event):
-        self.liked_events.append(event)
+        if not self.liked(event.id):
+            self.liked_events.append(event)
 
     def unlike(self, event_id):
         for event in self.liked_events:
-            if event.id == event_id:
+            if event.id == int(event_id):
                 self.liked_events.remove(event)
                 return True
         else:
@@ -170,7 +171,7 @@ class User(db.Model):
 
     def liked(self, event_id):
         for event in self.liked_events:
-            if event.id == event_id:
+            if event.id == int(event_id):
                 return True
         else:
             return False
@@ -180,8 +181,15 @@ class User(db.Model):
 
     def unattending(self, event_id):
         for event in self.attending_events:
-            if event.id == event_id:
+            if event.id == int(event_id):
                 self.attending_events.remove(event)
+                return True
+        else:
+            return False
+
+    def is_attending(self, event_id):
+        for event in self.attending_events:
+            if event.id == int(event_id):
                 return True
         else:
             return False
