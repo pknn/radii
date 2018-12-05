@@ -17,7 +17,13 @@ def index():
 def event():
     events = EventController.get_all_event()
     categories = CategoryController.get_all_category()
-    return render_template("event.html", title="Event", events=events, categories=categories)
+    return render_template(
+        "event.html",
+        title="Event",
+        events=events,
+        categories=categories,
+        current_category="All",
+    )
 
 
 @app.route("/browse_name", methods=["POST"])
@@ -27,12 +33,19 @@ def browse_name():
         events = EventController.search_by_name(query)
         return render_template("event.html", title="Event Search Result", events=events)
 
+
 @app.route("/browse_category/<category_id>")
 def browse_category(category_id):
     events = EventController.search_by_category_id(category_id)
     topic = CategoryController.get_name(category_id)
     categories = CategoryController.get_all_category()
-    return render_template("event.html",topic=topic , events=events, categories=categories)
+    return render_template(
+        "event.html",
+        topic=topic,
+        events=events,
+        categories=categories,
+        current_category=topic,
+    )
 
 
 @app.route("/event_dump", methods=["POST"])
