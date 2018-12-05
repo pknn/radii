@@ -7,15 +7,28 @@
 }
 
 .log-button {
-    background: #2E3F5A;
+    background: #8a3d43;
     color: white;
     border-radius: 40px;
     box-shadow: 5px 10px 20px hsla(0, 0, 0, 0.16);
     cursor: pointer;
+    padding: 10px;
+    border: 0;
+    text-align: left;
+    
+    .fas {  
+        margin-right: 6px;
+        margin-left: 7px;
+    }
 }
 
 @media (min-width: 768px) { 
     #main-navigation {
         padding: 0 8rem;
+    }
+}
+@media (max-width: 991px) {
+    .nav-link {
+        width: 100%;
     }
 }

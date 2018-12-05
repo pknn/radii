@@ -4,7 +4,6 @@
 }
 
 .button-style {
-  
   background-color: #ffffff;
   text-decoration: none;
   padding: 0.5rem;
@@ -20,10 +19,14 @@
 .button-attend {
   top: 178px;
   border: 1px solid #ff5700;
+  display: inline-flex;
+  @media screen and (max-width: 190px){
+    display: none;
+  }
   span {
     margin-left: 0.5rem;
   }
-  .fa,
+  .fas,
   span {
     transition: all ease 0.1s;
   }
@@ -45,7 +48,13 @@
   background-color: #ff5700;
   border-color: #ff5700;
   color: #ffffff;
-
+  display: inline-flex;
+  @media screen and (max-width: 190px){
+    display: none;
+  }
+  span {
+    margin-left: 0.5rem;
+  }
   &:focus {
     background-color: #ff5700;
     color: #ffffff;
@@ -60,13 +69,18 @@
 
 .button-like {
   border: 1px solid #3B5998;
+  display: inline-flex;
+  @media screen and (max-width: 190px){
+    display: none;
+  }
   span {
     margin-left: 0.5rem;
   }
-  .fa,
+  .fas,
   span {
     transition: all ease 0.1s;
   }
+
 
   &:focus {
     background-color: #ffffff;
@@ -85,7 +99,13 @@
   background-color: #3B5998;
   border-color: #3B5998;
   color: #ffffff;
-
+  display: inline-flex;
+  @media screen and (max-width: 190px){
+    display: none;
+  }
+  span {
+    margin-left: 0.5rem;
+  }
   &:focus {
     background-color: #3B5998;
     color: #ffffff;

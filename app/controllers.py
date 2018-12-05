@@ -66,6 +66,12 @@ class EventController:
         return events
 
     @staticmethod
+    def search_by_category_id(category_id):
+        category = Category.query.get(category_id)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
+
+    @staticmethod
     def like(event_id):
         event = Event.query.get(event_id)
         if current_user.is_authenticated():
