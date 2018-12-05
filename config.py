@@ -10,3 +10,4 @@ class Config(object):
     ) or "sqlite:///" + os.path.join(basedir, "radii.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TEMPLATES_AUTO_RELOAD = True
+
