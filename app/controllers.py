@@ -99,6 +99,13 @@ class EventController:
             current_user.attended(event)
             db.session.commit()
 
+    @staticmethod
+    def check_attended():
+        if current_user.is_authenticated():
+            for event in current_user.attending_events:
+                if event.is_event_passed():
+                    current_user.attended(event)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -122,6 +129,7 @@ class AuthController:
         if user is None:
             user = UserController.create_user(display_name, email)
         login_user(user)
+        EventController.check_attended()
         return user
 
     @staticmethod
@@ -138,6 +146,7 @@ class AuthController:
         else:
             if user.check_password(password):
                 login_user(user)
+                EventController.check_attended()
                 return True
             else:
                 return False
