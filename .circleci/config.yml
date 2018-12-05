@@ -23,7 +23,8 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            pytest -p no:warnings
+            pip install pytest pytest-cov
+            pytest --cov=./
 
   build:
     docker:
