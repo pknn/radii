@@ -107,3 +107,19 @@ def unattend(event_id):
         current_user.unattending(event)
         db.session.commit()
         return redirect(url_for("event", event_id=event_id))
+
+@app.route("/explore")
+def explore():
+    if request.method == "POST":
+        name, description, location, image_url, date_time, category_name = (
+            request.json.values()
+        )
+        return jsonify(
+            EventController.create_event(
+                name, description, location, image_url, date_time, category_name
+            ).jsonify()
+        )
+    else:
+        events = EventController.get_all_event()
+        return render_template("explore.html", title="Explore", events=events)
+

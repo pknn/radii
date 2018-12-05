@@ -5,6 +5,8 @@
 <div id="event">
 {% include "components/navbar.html" %}
 
+{%if not current_user.is_anomymous%}
+
 {% if not current_user.liked(event_info.id) %}
 <a href="{{ url_for('like', event_id=event_info.event_id) }}">
   <button class="button button-style button-like">
@@ -23,7 +25,6 @@
 
 {% endif %}
 
-
 {% if not current_user.unattending(event_info.event_id) %}
 <a href="{{ url_for('attend', event_id=event_info.event_id) }}">
   <button class="button button-style button-attend">
@@ -40,6 +41,7 @@
 </a>
 {% endif %}
 
+{%endif %}
 
 <div class="container event-descript">
   

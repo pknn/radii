@@ -72,6 +72,9 @@ header {
   grid-gap: 90px;
   margin-top: 100px;
 }
+.grid a {
+  color: #2E3F5A;
+}
 
 .services {
   padding: 25px;
@@ -144,6 +147,7 @@ header {
   bottom: 0;
   width: 100%;
   text-align: center;
+  margin-top: 90px;
 }
 #footer p {
   color: #fff;
