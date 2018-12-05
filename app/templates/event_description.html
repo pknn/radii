@@ -5,25 +5,24 @@
 <div id="event">
 {% include "components/navbar.html" %}
 
-{%if not current_user.is_anomymous%}
+{% if not current_user.is_anonymous %}
+  {% if not current_user.liked(event_info.id) %}
+  <a href="{{ url_for('like', event_id=event_info.event_id) }}">
+    <button class="button button-style button-like">
+      <i class="fas fa-thumbs-up"></i>
+      <span>{{ event_info.liked_users | length }}</span>
+    </button>
+  </a>
 
-{% if not current_user.liked(event_info.id) %}
-<a href="{{ url_for('like', event_id=event_info.event_id) }}">
-  <button class="button button-style button-like">
-    <i class="fas fa-thumbs-up"></i>
-    <span>{{ event_info.liked_users | length }}</span>
-  </button>
-</a>
+  {% else %}
+  <a href="{{ url_for('like', event_id=event_info.id) }}">
+    <button class="button button-style liked">
+      <i class="fas fa-thumbs-up"></i>
+      <span>{{ event_info.liked_users | length }}</span>
+    </button>
+  </a>
 
-{% else %}
-<a href="{{ url_for('like', event_id=event_info.id) }}">
-  <button class="button button-style liked">
-    <i class="fas fa-thumbs-up"></i>
-    <span>{{ event_info.liked_users | length }}</span>
-  </button>
-</a>
-
-{% endif %}
+  {% endif %}
 
 {% if not current_user.unattending(event_info.event_id) %}
 <a href="{{ url_for('attend', event_id=event_info.event_id) }}">
@@ -39,6 +38,7 @@
     <span>{{ event_info.attended_users | length }}</span>
   </button>
 </a>
+  {% endif %}
 {% endif %}
 
 {%endif %}
