@@ -6,6 +6,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/pknn1/radii.svg)](https://circleci.com/gh/pknn1/radii)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Site status](https://img.shields.io/website-up-down-green-red/http/www.devinpeace.com.svg?label=my-website)  
+[![codecov](https://codecov.io/gh/pknn1/radii/branch/master/graph/badge.svg)](https://codecov.io/gh/pknn1/radii)
 
 ## Team member
 | Name | Github 
