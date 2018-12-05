@@ -72,18 +72,31 @@ def login_github():
 @app.route("/register", methods=["POST"])
 def register():
     display_name, email, password = request.form.values()
-    AuthController.register(display_name, email, password)
-    return redirect(url_for("index"))
+    if AuthController.register(display_name, email, password):
+        return redirect(url_for("index"))
+    else:
+        return redirect(url_for("error", code=400))
 
 
 @app.route("/login", methods=["POST"])
 def login():
-    email, password = request.form
-    if current_user.is_authenticated():
+    email, password = request.form.values()
+    if current_user.is_authenticated:
         return redirect(url_for("index"))
     else:
-        AuthController.login(email, password)
-        return redirect(url_for("index"))
+        if AuthController.login(email, password):
+            return redirect(url_for("index"))
+        else:
+            return redirect(url_for("error", code=401))
+
+@app.route('/error/<int:code>')
+def error(code):
+    error_message = ""
+    if code == 400:
+        error_message = "User already exists"
+    else:
+        error_message = "Invalid Login Credential"
+    return render_template('error.html', error_message=error_message)
 
 
 @app.route("/logout", methods=["POST"])
