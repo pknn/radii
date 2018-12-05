@@ -54,6 +54,17 @@ class EventController:
         events = Event.query.all()
         return events
 
+    @staticmethod
+    def search_by_name(query):
+        events = Event.query.filter(Event.name.match(query))
+        return events
+
+    @staticmethod
+    def search_by_category(query):
+        category = Category.query.get(query)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
+
 
 @login_manager.user_loader
 def load_user(user_id):

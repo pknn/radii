@@ -13,20 +13,26 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/event", methods=["GET", "POST"])
+@app.route("/event")
 def event():
+    events = EventController.get_all_event()
+    return render_template("event.html", title="Event", events=events)
+
+
+@app.route("/browse_name", methods=["POST"])
+def browse_name():
     if request.method == "POST":
-        name, description, location, image_url, date_time, category_name = (
-            request.json.values()
-        )
-        return jsonify(
-            EventController.create_event(
-                name, description, location, image_url, date_time, category_name
-            ).jsonify()
-        )
-    else:
-        events = EventController.get_all_event()
-        return render_template("event.html", title="Event", events=events)
+        query = request.form["query"]
+        events = EventController.search_by_name(query)
+        return render_template("event.html", title="Event Search Result", events=events)
+
+
+@app.route("/browse_category", methods=["POST"])
+def browse_category():
+    if request.method == "POST":
+        query = request.form["query"]
+        events = EventController.search_by_category(query)
+        return render_template("event.html", title=query, events=events)
 
 
 @app.route("/event_dump", methods=["POST"])
