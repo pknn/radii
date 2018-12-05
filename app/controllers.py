@@ -1,7 +1,6 @@
 from app import db, login_manager
 from app.models import User, Event, Category
 from flask_login import login_user, logout_user, current_user
-import sys
 
 
 class UserController:
@@ -63,6 +62,12 @@ class EventController:
     @staticmethod
     def search_by_category(query):
         category = Category.query.get(query)
+        events = Event.query.filter(Event.category_id == category.id)
+        return events
+
+    @staticmethod
+    def search_by_category_id(category_id):
+        category = Category.query.get(category_id)
         events = Event.query.filter(Event.category_id == category.id)
         return events
 
@@ -154,4 +159,3 @@ class AuthController:
     @staticmethod
     def logout():
         logout_user()
-

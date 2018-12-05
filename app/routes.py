@@ -1,11 +1,9 @@
 from flask import render_template, redirect, url_for, request, jsonify
 from flask_dance.contrib.github import github
 from flask_login import current_user, login_required
-from app import app, auth
+from app import app
 from app.controllers import EventController, AuthController, CategoryController
 from app.models import Event
-import sys
-from datetime import datetime, timedelta
 
 
 @app.route("/")
@@ -133,4 +131,3 @@ def explore():
     else:
         events = EventController.get_all_event()
         return render_template("explore.html", title="Explore", events=events)
-
