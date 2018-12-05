@@ -474,6 +474,7 @@ label {
 }
 
 .attended {
+  top: 178px;
   background-color: #ff5700;
   border-color: #ff5700;
   color: #ffffff;

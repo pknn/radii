@@ -81,7 +81,7 @@ def register():
 @app.route("/login", methods=["POST"])
 def login():
     email, password = request.form
-    if current_user.is_authenticated:
+    if current_user.is_authenticated():
         return redirect(url_for("index"))
     else:
         AuthController.login(email, password)
@@ -97,41 +97,26 @@ def logout():
 
 @app.route("/like/<event_id>")
 def like(event_id):
-    event = Event.query.filter_by(event_id=event_id).first()
-    if current_user.is_authenticated:
-        if current_user.liked(event):
-            return redirect(url_for("event", event_id=event_id))
-        current_user.like(event)
-        db.session.commit()
-        return redirect(url_for("event", event_id=event_id))
+    EventController.like(event_id)
+    return redirect(url_for("event_description", event_id=event_id))
 
 
 @app.route("/unlike/<event_id>")
 def unlike(event_id):
-    if current_user.is_authenticated:
-        current_user.unlike(event_id)
-        db.session.commit()
-        return redirect(url_for("event", event_id=event_id))
+    EventController.unlike(event_id)
+    return redirect(url_for("event_description", event_id=event_id))
 
 
 @app.route("/attend/<event_id>")
 def attend(event_id):
-    event = Event.query.filter_by(event_id=event_id).first()
-    if current_user.is_authenticated:
-        if current_user.attended(event):
-            return redirect(url_for("event", event_id=event_id))
-        current_user.attending(event)
-        db.session.commit()
-        return redirect(url_for("event", event_id=event_id))
+    EventController.attending(event_id)
+    return redirect(url_for("event_description", event_id=event_id))
 
 
 @app.route("/unattend/<event_id>")
 def unattend(event_id):
-    event = Event.query.filter_by(event_id=event_id).first()
-    if current_user.is_authenticated:
-        current_user.unattending(event)
-        db.session.commit()
-        return redirect(url_for("event", event_id=event_id))
+    EventController.unattending(event_id)
+    return redirect(url_for("event_description", event_id=event_id))
 
 
 @app.route("/explore")
