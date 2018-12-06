@@ -29,7 +29,9 @@ def browse_name():
     if request.method == "POST":
         query = request.form["query"]
         events = EventController.search_by_name(query)
-        return render_template("event.html", title="Event Search Result", events=events)
+        categories = CategoryController.get_all_category()
+        return render_template("event.html", title="Event Search Result", events=events, categories=categories,
+        current_category="All")
 
 
 @app.route("/browse_category/<category_id>")
