@@ -8,7 +8,7 @@ sqlalchemy-utils==0.33.9
 gunicorn==19.9.0
 meinheld==0.6.1
 flake8==3.6.0
-flask-dance==1.2.0
+flask-dance==2.0.0
 flask-login==0.4.1
 psycopg2==2.7.6.1
 psycopg2-binary==2.7.6.1
